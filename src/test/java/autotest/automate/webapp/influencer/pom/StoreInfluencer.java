@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import autotest.automate.PomInfluencer;
 
 
 public class StoreInfluencer{
@@ -17,14 +16,12 @@ public class StoreInfluencer{
 	protected static WebDriver driver;
 	
 	private static By menuItems = By.tagName("button");
-//	private By orders = By.xpath("//p[contains(text(),'Orders')]");
-//	private RelativeBy order = RelativeLocator.withTagName("").below(orders);
-//	private By orders1 = By.xpath("//a[@href ='orders']");
 	private static By profilePicture = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[1]/div/div[2]/div/button/div[1]/img");
 	private static By language = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[1]/div/div[4]/div/button/div[1]/span/div/svg");
 	private static By filterSearch = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[1]/div/div/div/div/svg");
 	private static By profile = By.xpath("//div[contains(text(),'My profile')]");
 	private static By brandsProduct = By.xpath("//div[contains(text(),'Test brand 3')]");
+	private static By variantArrow = By.className("css-3k0pol-placeholder");
 
 	//  private By messageBy = By.tagName("h1");
 
@@ -77,7 +74,54 @@ public class StoreInfluencer{
 		    driver.findElement(profile).click();
 		    return new ManageProfile(driver);
 		  }
-	  public static void goBrandsProduct() throws InterruptedException {
+  
+	  public static void clickOnOrder() throws InterruptedException {
+		  		  WebElement OrderButton=
+				  driver.findElement(By.xpath("//span[contains(text(),'commander')]"));
+				  
+				  // Si boutton commander pas visible, remplir l'adresse
+				  
+				  if(!OrderButton.isEnabled()) { 
+				 completeAddress();
+				  } 
+				  
+				  Thread.sleep(6000);
+				  selectVariant();
+				  
+				  OrderButton.click();
+				  Thread.sleep(1000);
+				  driver.findElement(By.xpath("//span[contains(text(),'simple')]")).click();
+				  
+				  Thread.sleep(5000);	
+	}
+
+	public static void clickOnContinueButton() throws InterruptedException {
+		  Thread.sleep(600);
+		  if(driver.findElement(By.xpath("//span[contains(text(),'continue')]")).
+		  isDisplayed()) { WebElement continueButton=
+		  driver.findElement(By.xpath("//span[contains(text(),'continuer')]"));
+		  continueButton.click(); } 
+		  else {
+		  
+		  Thread.sleep(2000); WebElement continueButton=
+		  driver.findElement(By.xpath("//span[contains(text(),'continuer')]"));
+		  continueButton.click(); }
+	}
+
+	public static void acceptCgu() throws InterruptedException {
+		  try {
+			  WebElement CguRadioCheck = driver.findElement(By.
+			  xpath("//div[contains(text(),'bien pris connaissance des conditions et des')]"  ));
+			  CguRadioCheck.click();
+			  } 
+			  catch (Exception e) { 
+			  Thread.sleep(1000);
+			  WebElement CguRadioCheck = driver.findElement(By.
+			  id("conditions" )); 
+			  if (CguRadioCheck.isDisplayed()) { CguRadioCheck.click(); } }
+	}
+
+	public static void selectNetwork() throws InterruptedException {
 		  driver.findElement(brandsProduct);
 		  driver.findElement(By.xpath("//div[contains(text(),'Test brand 3')]")).click();
 		  Thread.sleep(600);
@@ -96,54 +140,9 @@ public class StoreInfluencer{
 					OrderElements.get(13).click();
 				  }
 			 }
+	}
 
-				  // check the CGU radio check : "I have read and understand the conditions*"  and click on continue
-				  
-				  try {
-				  WebElement CguRadioCheck = driver.findElement(By.
-				  xpath("//div[contains(text(),'bien pris connaissance des conditions et des')]"  ));
-				  CguRadioCheck.click();
-				  } 
-				  catch (Exception e) { 
-				  Thread.sleep(1000);
-				  WebElement CguRadioCheck = driver.findElement(By.
-				  id("conditions" )); 
-				  if (CguRadioCheck.isDisplayed()) { CguRadioCheck.click(); } }
-				  
-				  // click on continue
-				  
-				  Thread.sleep(600);
-				  if(driver.findElement(By.xpath("//span[contains(text(),'continue')]")).
-				  isDisplayed()) { WebElement continueButton=
-				  driver.findElement(By.xpath("//span[contains(text(),'continuer')]"));
-				  continueButton.click(); } 
-				  else {
-				  
-				  Thread.sleep(2000); WebElement continueButton=
-				  driver.findElement(By.xpath("//span[contains(text(),'continuer')]"));
-				  continueButton.click(); }
-				  
-				  // click on order button
-				  
-				  WebElement OrderButton=
-				  driver.findElement(By.xpath("//span[contains(text(),'commander')]"));
-				  
-				  // Si boutton commander pas visible, remplir l'adresse
-				  
-				  if(!OrderButton.isEnabled()) { 
-				 completeAddress();
-				  
-				  } 
-				 
-				//  click on order
-				  OrderButton.click();
-				  Thread.sleep(1000);
-				  driver.findElement(By.xpath("//span[contains(text(),'simple')]")).click();
-				  
-				  Thread.sleep(5000);
-	  }
-	  
-	  private static void completeAddress() {
+	public static void completeAddress() {
  		  WebElement address =
 		  driver.findElement(By.id("react-google-places-autocomplete-input"));
 		  address.sendKeys("5 Rue Pernelle, 75004 Paris");
@@ -176,5 +175,17 @@ public class StoreInfluencer{
 		  saveButton.click();
 
 }
+	  public static boolean productWithVariant() {
+		boolean variant = false;
+		if (driver.findElement(variantArrow).isDisplayed()){
+			variant = true;
+		}
+		  return variant;  
+	  }
+	  public static void selectVariant() {
+		  if (productWithVariant()) {
+			  driver.findElement(variantArrow).click();
+		  }  
+	  }
 
 }

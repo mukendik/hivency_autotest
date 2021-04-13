@@ -1,12 +1,15 @@
 package autotest.automate;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.helpers.OptionConverter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +19,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
+
 
 
 public abstract class BaseTest {
@@ -34,13 +38,18 @@ public abstract class BaseTest {
 	
 	public void init() throws IOException{
 		
-	//	Dlog4j.configuration="file:/C:/workspace3/local/log4j.properties"
-	//	PropertyConfigurator.configure(getClass().getResource("/log4j.properties"));
-	//	PropertyConfigurator.configure(getClass().getProtectionDomain().getCodeSource().getLocation().getPath() + "log4j.properties");
-		System.out.println();
 		//To Initialize logger service.
-		Add_Log = Logger.getLogger("rootLogger");	
-		PropertyConfigurator.configure(getClass().getProtectionDomain().getCodeSource().getLocation().getPath() + "log4j.properties");
+		System.out.println(System.getProperty("log4j.configuration", null));
+		System.out.println(OptionConverter.getSystemProperty("log4j.configuration", null));
+		Add_Log = Logger.getLogger("rootLogger");
+		// BasicConfigurator.configure();
+		PropertyConfigurator.configure("C:\\Users\\Utilisateur\\eclipse-workspace\\autotest\\log4j.properties");
+		   
+		// Add_Log = Logger.getRootLogger();
+		
+		// PropertyConfigurator.configure(ContentPublication.class.getClassLoader().getResource("log4j.properties"));
+		//PropertyConfigurator.configure("C:\Users\Utilisateur\eclipse-workspace\autotest\log4j.properties");
+		// PropertyConfigurator.configure("C:\\Users\\Utilisateur\\eclipse-workspace\\autotest\\log4j.properties");
 		
 		//Bellow given syntax will Insert log In applog.log file.
 		Add_Log.info("Execution started for Hivency Automaton.");

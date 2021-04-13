@@ -9,7 +9,7 @@ import autotest.automate.webapp.influencer.pom.StoreInfluencer;
 
 public class ContentPublication extends PomInfluencer{
 	
-	@Test  // prerequisite : we should have pass orders, and have approved ones in the brand side
+	@Test  // prerequisite : we should have passed orders, and have approved ones in the brand side
 	public void publishContent() throws InterruptedException{
 		SignInPage signIn = new SignInPage(driver);
 		signIn.loginValidUser(197908);  

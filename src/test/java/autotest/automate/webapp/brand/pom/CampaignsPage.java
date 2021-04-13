@@ -16,7 +16,7 @@ public class CampaignsPage extends BrandAppPage{
 	// protected static WebDriver driver;
 	
 	private static By allCampaigns = By.xpath("//div[contains(text(),'all campaigns']");
-	private static By draft = By.xpath("//div[contains(text(),'draft']");
+	private static By draft = By.xpath("//div[contains(text(),'draft')]");
 	private static By published = By.xpath("//div[contains(text(),'published']");
 	private static By awaitingPublication = By.xpath("//div[contains(text(),'awaiting publication']");
 	private static By completed = By.xpath("//div[contains(text(),'completed']");
@@ -52,8 +52,8 @@ public class CampaignsPage extends BrandAppPage{
 public static void fillStepOne() throws InterruptedException {
 		
 		Thread.sleep(1200); 
-		driver.findElement(campaignName).sendKeys("Autotest Campaign");
-		driver.findElement(catchPhrase).sendKeys("Autotest is very fun");
+		driver.findElement(campaignName).sendKeys("TNR 09/04/2021");
+		driver.findElement(catchPhrase).sendKeys("TNR autotest");
 		driver.findElement(addPicture).sendKeys("C:\\Users\\Utilisateur\\Desktop\\My Images\\Tests images\\images.jfif");
 		
 	//	 driver.findElement(By.cssSelector(".DayPickerInput > input")).click();

@@ -10,7 +10,7 @@ import autotest.automate.webapp.brand.pom.SignInPage;
 
 public class CampaignCreation extends PomBrand{
 	
-	@Test
+	// @Test
 	public void createCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
 		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
@@ -49,6 +49,7 @@ public class CampaignCreation extends PomBrand{
 		Thread.sleep(3200);
 	}
 	
+	// @Test
 	public void closeCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
 		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
@@ -64,6 +65,7 @@ public class CampaignCreation extends PomBrand{
 		
 	}
 	
+	// @Test
 	public void duplicateCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
 		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
@@ -76,6 +78,25 @@ public class CampaignCreation extends PomBrand{
 		Thread.sleep(1200);
 		CampaignsPage.awaitingPubTab();
 		// further implementations needed
+	}
+	
+	// @Test
+	public void deleteCampaign() throws InterruptedException {
+		
+		SignInPage brandSignIn = new SignInPage(driver);
+		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
+		
+		Thread.sleep(1200);
+		BrandAppPage.goLangague();
+		ProfileMenu.selectBrand();
+		Thread.sleep(800);
+		ProfileMenu.changeLanguage();
+		BrandAppPage.goCampaigns();
+		Thread.sleep(1000);
+		CampaignsPage.draftTab();
+		Thread.sleep(6200);
+		// point on a campaign and click delete
+		
 	}
 	
 	

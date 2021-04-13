@@ -17,7 +17,7 @@ public class Registration extends PomInfluencer{
 		SignUp.accountCreation();
 		Thread.sleep(3000);
 		CompleteProfile.completeProfile();
-		Thread.sleep(1000);
+		Thread.sleep(1900);
 		
 	}
 

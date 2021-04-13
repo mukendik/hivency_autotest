@@ -13,8 +13,19 @@ public class ProductOrdering extends PomInfluencer {
 		
 		SignInPage signIn = new SignInPage(driver);
 		signIn.loginValidUser(197908);
+		
 		Thread.sleep(3000);
-		StoreInfluencer.goBrandsProduct();
+		// click on networks logo
+  		StoreInfluencer.selectNetwork();
+
+  		// check the CGU radio 
+  		StoreInfluencer.acceptCgu();
+		  
+  		// click on continue
+  		StoreInfluencer.clickOnContinueButton(); 
+		  
+  		// click on order button
+  		StoreInfluencer.clickOnOrder(); 
 		Thread.sleep(6000);
 	}
 	
@@ -24,7 +35,18 @@ public class ProductOrdering extends PomInfluencer {
 		SignInPage signIn = new SignInPage(driver);
 		signIn.loginValidUser(197908);
 		Thread.sleep(5000);
-		StoreInfluencer.goBrandsProduct();
+		
+		// click on networks logo
+  		StoreInfluencer.selectNetwork();
+
+  		// check the CGU radio 
+  		StoreInfluencer.acceptCgu();
+		  
+  		// click on continue
+  		StoreInfluencer.clickOnContinueButton(); 
+		  
+  		// click on order button
+  		StoreInfluencer.clickOnOrder(); 
 	}
 
 }

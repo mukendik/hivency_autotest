@@ -2,17 +2,16 @@ package autotest.automate;
 
 import java.io.IOException;
 
-
-
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 
 import org.openqa.selenium.logging.Logs;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+
 
 
 public abstract class PomInfluencer extends BaseTest{
