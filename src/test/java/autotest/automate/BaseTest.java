@@ -39,11 +39,11 @@ public abstract class BaseTest {
 	public void init() throws IOException{
 		
 		//To Initialize logger service.
-		System.out.println(System.getProperty("log4j.configuration", null));
-		System.out.println(OptionConverter.getSystemProperty("log4j.configuration", null));
+	//	System.out.println(System.getProperty("log4j.configuration", null));
+	//	System.out.println(OptionConverter.getSystemProperty("log4j.configuration", null));
 		Add_Log = Logger.getLogger("rootLogger");
 		// BasicConfigurator.configure();
-		PropertyConfigurator.configure("C:\\Users\\Utilisateur\\eclipse-workspace\\autotest\\log4j.properties");
+	//	PropertyConfigurator.configure("C:\\Users\\Utilisateur\\eclipse-workspace\\autotest\\log4j.properties");
 		   
 		// Add_Log = Logger.getRootLogger();
 		
@@ -54,20 +54,51 @@ public abstract class BaseTest {
 		//Bellow given syntax will Insert log In applog.log file.
 		Add_Log.info("Execution started for Hivency Automaton.");
 		
+		String paramMac = "//src//test//resources//property//Param.properties";
+		String objectMac = "//src//test//resources//property//Param.properties";
+		String paramWin = "\\src\\test\\resources\\property\\Param.properties";
+		String objectWin = "\\src\\test\\resources\\property\\Param.properties";
+
+		
+		String paramProp = paramWin;
+		String objectProp = objectWin;
+		
+		
+		String OS = System.getProperty("os.name");
+		
+		
+		System.out.println(System.getProperty("os.name"));
+		
+		if (OS.startsWith("Mac")) {
+			paramProp = paramMac;
+			objectProp = objectMac;
+		}
+		
 		//Create object of Java Properties class
 		Param = new Properties();
-		FileInputStream fip = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\property\\Param.properties");
+		
+	
+		FileInputStream fip = new FileInputStream(System.getProperty("user.dir")+ paramProp );
 		Param.load(fip);
 		Add_Log.info("Param.properties file loaded successfully.");	
 		
 		//Initialize Objects.properties file.
 		Object = new Properties();
-		fip = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\property\\Objects.properties");
+		fip = new FileInputStream(System.getProperty("user.dir")+ objectProp);
 		Object.load(fip);
 		Add_Log.info("Objects.properties file loaded successfully.");
 	}
 	
 	public void loadWebBrowser(){
+		
+		String chromeDriverWin  = "\\src\\test\\resources\\Webdrivers\\Windows\\chrome\\chromedriver.exe";
+		String chromeDriverMac  = "//src//test//resources//Webdrivers//Mac//chromedriver";
+		
+		String chromeDriver = chromeDriverWin;
+		
+		if (System.getProperty("os.name").startsWith("Mac")) {
+			chromeDriver = chromeDriverMac;
+		}
 		
 		// Browser logging again 
 		LoggingPreferences logs = new LoggingPreferences();
@@ -95,7 +126,7 @@ public abstract class BaseTest {
 				
 			}else if(Param.getProperty("testBrowser").equalsIgnoreCase("Chrome")){
 				//To Load Chrome driver Instance.
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\Webdrivers\\Windows\\chrome\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ chromeDriver);
 				driver = new ChromeDriver();
 				ExistingchromeBrowser=driver;
 				Add_Log.info("Chrome Driver Instance loaded successfully.");

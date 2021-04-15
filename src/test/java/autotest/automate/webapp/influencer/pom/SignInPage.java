@@ -2,7 +2,7 @@ package autotest.automate.webapp.influencer.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.locators.RelativeLocator;
+
 
 
 public class SignInPage{
