@@ -2,6 +2,10 @@ package autotest.automate.webapp.influencer.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+<<<<<<< HEAD
+=======
+
+>>>>>>> c5f0c0ad2aa430933443104bfce8aced84e8385a
 
 
 import autotest.automate.PomInfluencer;
