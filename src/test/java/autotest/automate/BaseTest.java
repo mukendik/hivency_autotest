@@ -133,7 +133,7 @@ public abstract class BaseTest {
 				
 			}else if(Param.getProperty("testBrowser").equalsIgnoreCase("IE")){
 				//To Load IE driver Instance.
-				System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\Webdrivers\\Windows\\IE\\IEDriverServer.exe");
+				System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+ "\\src\\test\\resources\\Webdrivers\\Windows\\IE\\IEDriverServer.exe");
 				driver = new InternetExplorerDriver();
 				ExistingIEBrowser=driver;
 				Add_Log.info("IE Driver Instance loaded successfully.");
