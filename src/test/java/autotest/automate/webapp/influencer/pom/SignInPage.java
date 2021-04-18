@@ -2,18 +2,25 @@ package autotest.automate.webapp.influencer.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.locators.RelativeLocator;
 
 
-public class SignInPage{
+import autotest.automate.PomInfluencer;
+
+
+public class SignInPage extends PomInfluencer{
 	
 	  protected  WebDriver driver;
 
-	  private By username = By.id("email");
+	  private By username = By.id(Object.getProperty("influencer_email"));
+	  String user_name = "influencer_email";
 	  private By password = By.id("password");
-	  private By signinbtn = By.xpath("//span[contains(text(),'se connecter')]");
-	  private By forgotPassword = By.xpath("//*[contains(text(),'mot de passe oublié')]");
+	  String passwd = "influencer_password";
+	  private By signinbtn = By.xpath(Object.getProperty("btn_se_connecter"));
+	  String signin_btn = "btn_se_connecter";
+	 // private By forgotPassword = By.xpath("//*[contains(text(),'mot de passe oublié')]");
+	  private By forgotPassword = By.xpath(Object.getProperty("btn_forgot_password"));
 	  private By createAccountbtn = By.xpath("//*[contains(text(),'créer un compte')]");
+	  String createAccount_btn = Object.getProperty("btn_forgot_password");
 	//  private By initiatePasswordLink = RelativeLocator.withTagName("button").below(signinbtn);
 	//  private By createAccountbtn = RelativeLocator.withTagName("button").below(initiatePasswordLink);
 	 
@@ -30,9 +37,11 @@ public class SignInPage{
 	    * @return HomePage object
 	    */
 	  public StoreInfluencer loginValidUser(String userName, String passWord) {
-	    driver.findElement(username).sendKeys(userName);
-	    driver.findElement(password).sendKeys(passWord);
-	    driver.findElement(signinbtn).click();
+		//  driver.findElement(username).sendKeys(userName);
+	    getElementByID(user_name).sendKeys(userName);
+	  //  driver.findElement(password).sendKeys(passWord);
+	    getElementByID(passwd).sendKeys(passWord);
+	    getElementByXPath(signin_btn).click();
 	    return new StoreInfluencer (driver);
 	  }
 	  
@@ -46,7 +55,6 @@ public class SignInPage{
 		}
 	  
 	  public Initiatepassword forgotPassword (String email) {
-		
 		  return new Initiatepassword(driver);  
 	  }
 	  
