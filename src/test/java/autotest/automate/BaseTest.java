@@ -19,6 +19,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.support.locators.RelativeLocator;
 
 
 
@@ -39,25 +40,16 @@ public abstract class BaseTest {
 	public void init() throws IOException{
 		
 		//To Initialize logger service.
-	//	System.out.println(System.getProperty("log4j.configuration", null));
-	//	System.out.println(OptionConverter.getSystemProperty("log4j.configuration", null));
 		Add_Log = Logger.getLogger("rootLogger");
-		// BasicConfigurator.configure();
-	//	PropertyConfigurator.configure("C:\\Users\\Utilisateur\\eclipse-workspace\\autotest\\log4j.properties");
-		   
-		// Add_Log = Logger.getRootLogger();
-		
-		// PropertyConfigurator.configure(ContentPublication.class.getClassLoader().getResource("log4j.properties"));
-		//PropertyConfigurator.configure("C:\Users\Utilisateur\eclipse-workspace\autotest\log4j.properties");
-		// PropertyConfigurator.configure("C:\\Users\\Utilisateur\\eclipse-workspace\\autotest\\log4j.properties");
+ 
 		
 		//Bellow given syntax will Insert log In applog.log file.
 		Add_Log.info("Execution started for Hivency Automaton.");
 		
 		String paramMac = "//src//test//resources//property//Param.properties";
-		String objectMac = "//src//test//resources//property//Param.properties";
+		String objectMac = "//src//test//resources//property//Objects.properties";
 		String paramWin = "\\src\\test\\resources\\property\\Param.properties";
-		String objectWin = "\\src\\test\\resources\\property\\Param.properties";
+		String objectWin = "\\src\\test\\resources\\property\\Objects.properties";
 
 		
 		String paramProp = paramWin;
@@ -260,6 +252,16 @@ public abstract class BaseTest {
 			return driver.findElement(By.partialLinkText(Object.getProperty(Key)));
 		}catch(Throwable t){
 			Add_Log.debug("Object not found for key --"+Key);
+			return null;
+		}
+	}
+	// Call this function to locate element by Relative locator
+	public WebElement getElementByRelativeLocatorBelowWithTag(WebElement xpathElement, String tagName) {
+		try {
+			return driver.findElement(RelativeLocator.withTagName(tagName).below(xpathElement));
+		}
+		catch(Throwable t) {
+			Add_Log.debug("Object not found for tag --"+tagName+" below the element"+xpathElement);
 			return null;
 		}
 	}

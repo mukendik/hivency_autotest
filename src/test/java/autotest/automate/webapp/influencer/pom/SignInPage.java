@@ -2,10 +2,7 @@ package autotest.automate.webapp.influencer.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-<<<<<<< HEAD
-=======
 
->>>>>>> c5f0c0ad2aa430933443104bfce8aced84e8385a
 
 
 import autotest.automate.PomInfluencer;
@@ -15,17 +12,13 @@ public class SignInPage extends PomInfluencer{
 	
 	  protected  WebDriver driver;
 
-	  private By username = By.id(Object.getProperty("influencer_email"));
 	  String user_name = "influencer_email";
-	  private By password = By.id("password");
 	  String passwd = "influencer_password";
-	  private By signinbtn = By.xpath(Object.getProperty("btn_se_connecter"));
 	  String signin_btn = "btn_se_connecter";
-	 // private By forgotPassword = By.xpath("//*[contains(text(),'mot de passe oublié')]");
-	  private By forgotPassword = By.xpath(Object.getProperty("btn_forgot_password"));
-	  private By createAccountbtn = By.xpath("//*[contains(text(),'créer un compte')]");
-	  String createAccount_btn = Object.getProperty("btn_forgot_password");
+	  String forgotPassword = "btn_forgot_password";
+	  String createAccountbtn = "btn_create_account";
 	//  private By initiatePasswordLink = RelativeLocator.withTagName("button").below(signinbtn);
+	  String initiatePasswordLinkTag = "button";
 	//  private By createAccountbtn = RelativeLocator.withTagName("button").below(initiatePasswordLink);
 	 
 	  
@@ -41,9 +34,7 @@ public class SignInPage extends PomInfluencer{
 	    * @return HomePage object
 	    */
 	  public StoreInfluencer loginValidUser(String userName, String passWord) {
-		//  driver.findElement(username).sendKeys(userName);
 	    getElementByID(user_name).sendKeys(userName);
-	  //  driver.findElement(password).sendKeys(passWord);
 	    getElementByID(passwd).sendKeys(passWord);
 	    getElementByXPath(signin_btn).click();
 	    return new StoreInfluencer (driver);
@@ -63,12 +54,12 @@ public class SignInPage extends PomInfluencer{
 	  }
 	  
 	  public SignUp initiatePassword() {
-		  driver.findElement(forgotPassword).click();
+		  getElementByXPath(forgotPassword).click();
 		  return new SignUp(driver);
 	  }
 	  
 	  public SignUp createAccount() {
-		  driver.findElement(createAccountbtn).click();
+		  getElementByXPath(createAccountbtn).click();
 		  return new SignUp(driver);
 	  }
 }
