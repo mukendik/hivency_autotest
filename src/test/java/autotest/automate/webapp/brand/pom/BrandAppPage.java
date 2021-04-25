@@ -10,19 +10,28 @@ import autotest.automate.*;
 
 public class BrandAppPage extends BaseTest{
 	
-	protected static WebDriver driver;
+	// protected static WebDriver driver;
 
-	private static By followUpLink =     By.xpath("//div[contains(text(),'Follow up')]");
-	private static By campaignsLink =    By.xpath("//div[contains(text(),'Campaigns')]");
-	private static By influencersLink =  By.xpath("//div[contains(text(),'Influencers')]");
-	private static By messagingLink =    By.xpath("//div[contains(text(),'Campaigns')]");
-	private static By offersLink =       By.xpath("//div[contains(text(),'Offers')]");
-	private static By imagesLink =       By.xpath("//div[contains(text(),'Images')]");
-	private static By statisticslink =   By.xpath("//div[contains(text(),'Statistics')]");
+	// private static By followUpLink =     By.xpath("//div[contains(text(),'Follow up')]");
+	static String followUpLink = "followUp_link";
+	//private static By campaignsLink =    By.xpath("//div[contains(text(),'Campaigns')]");
+	static String campaignsLink = "campaigns_link";
+	//private static By influencersLink =  By.xpath("//div[contains(text(),'Influencers')]");
+	static String influencersLink = "influencers_link";
+	//private static By messagingLink =    By.xpath("//div[contains(text(),'Campaigns')]");
+	static String messagingLink = "messaging_link";
+	// private static By offersLink =       By.xpath("//div[contains(text(),'Offers')]");
+	static String offersLink = "offers_link";
+	// private static By imagesLink =       By.xpath("//div[contains(text(),'Images')]");
+	static String imagesLink = "images_link";
+	//private static By statisticslink =   By.xpath("//div[contains(text(),'Statistics')]");
+	static String statisticslink = "statistics_link";
 	
-	protected static By publicationsLink = By.xpath("//div[contains(text(),'Publications')]");
- 	protected static By profileElementsBy = By.className("custom-dropdown");
-	
+	// protected static By publicationsLink = By.xpath("//div[contains(text(),'Publications')]");
+	static String publicationsLink = "publications_link";
+ 	// protected static By profileElements = By.className("custom-dropdown");
+ 	static String profileElements = "profile_elements";
+ 	
 	// private static List<WebElement> profileElements = driver.findElements(profileElementsBy);
 	
 	public BrandAppPage(WebDriver driver) {
@@ -31,45 +40,45 @@ public class BrandAppPage extends BaseTest{
 	}
 	
 	public static FollowUpPage goFollowUp() {
-		driver.findElement(followUpLink).click();
+		getElementByXPath(followUpLink).click();
 		return new FollowUpPage(driver);
 	}
 	
 	public static CampaignsPage goCampaigns() {
-		driver.findElement(campaignsLink).click();
+		getElementByXPath(campaignsLink).click();
 		return new CampaignsPage(driver);
 	}
 	
 	public static CampaignsPage goInfluencers() {
-		driver.findElement(influencersLink).click();
+		getElementByXPath(influencersLink).click();
 		return new CampaignsPage(driver);
 	}
 	
 	public static CampaignsPage goMessages() {
-		driver.findElement(messagingLink).click();
+		getElementByXPath(messagingLink).click();
 		return new CampaignsPage(driver);
 	}
 	
 	public static CampaignsPage goImages() {
-		driver.findElement(imagesLink).click();
+		getElementByXPath(imagesLink).click();
 		return new CampaignsPage(driver);
 	}
 	
 	public static CampaignsPage goOffers() {
-		driver.findElement(offersLink).click();
+		getElementByXPath(offersLink).click();
 		return new CampaignsPage(driver);
 	}
 	
 	public static CampaignsPage goStatistics() {
-		driver.findElement(statisticslink).click();
+		getElementByXPath(statisticslink).click();
 		return new CampaignsPage(driver);
 	}
 	
 
 	
 	public static void goLangague() {
-		List<WebElement> profileElements = driver.findElements(profileElementsBy);
-		WebElement language = profileElements.get(1);
+		List<WebElement> profile_Elements = getElementsByXPath(profileElements);
+		WebElement language = profile_Elements.get(1);
 		language.click();
 	}
 

@@ -47,20 +47,18 @@ public abstract class BaseTest {
 		//Bellow given syntax will Insert log In applog.log file.
 		Add_Log.info("Execution started for Hivency Automaton.");
 		
+		String OS = System.getProperty("os.name");
+		
+		Add_Log = Logger.getLogger("Test running on "+ System.getProperty("os.name"));
+		
 		String paramMac = "//src//test//resources//property//Param.properties";
 		String objectMac = "//src//test//resources//property//Objects.properties";
 		String paramWin = "\\src\\test\\resources\\property\\Param.properties";
 		String objectWin = "\\src\\test\\resources\\property\\Objects.properties";
-
 		
 		String paramProp = paramWin;
 		String objectProp = objectWin;
 		
-		
-		String OS = System.getProperty("os.name");
-		
-		
-		System.out.println(System.getProperty("os.name"));
 		
 		if (OS.startsWith("Mac")) {
 			paramProp = paramMac;

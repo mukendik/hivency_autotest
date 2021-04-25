@@ -7,7 +7,7 @@
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="createReviewCampaign"/>
+          <include name="createCampaign"/>
         </methods>
       </class> <!-- autotest.automate.webapp.brand.testcases.CampaignCreation -->
     </classes>

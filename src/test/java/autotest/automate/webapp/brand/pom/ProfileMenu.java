@@ -34,8 +34,8 @@ public class ProfileMenu extends BrandAppPage{
 	}
 	
 	public static void goUserProfile() {
-		List<WebElement> profileElements = driver.findElements(profileElementsBy);
-		WebElement userProfile = profileElements.get(2);
+		List<WebElement> profile_Elements = getElementsByClass(profileElements);
+		WebElement userProfile = profile_Elements.get(2);
 		userProfile.click();
 	}
 	

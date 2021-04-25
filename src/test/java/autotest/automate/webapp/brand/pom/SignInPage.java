@@ -1,22 +1,21 @@
 package autotest.automate.webapp.brand.pom;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
 
-import autotest.automate.PomBrand;
 
-public class SignInPage extends PomBrand{
+
+public class SignInPage extends BrandAppPage{
 	
-	protected WebDriver driver;
+	// protected WebDriver driver;
 	
+
 	static String username = "brand_email";
 	static String passWord = "brand_password";
 	static String connectButton = "wrapper_input_submit";
 	
 	public SignInPage(WebDriver driver) {
-		super();
-		this.driver = driver;
+		super(driver);
+		// this.driver = driver;
 	}
 	
 	public BrandAppPage loginValidBrand(String email, String pass) {
