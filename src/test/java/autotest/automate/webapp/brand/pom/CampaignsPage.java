@@ -15,7 +15,8 @@ public class CampaignsPage extends BrandAppPage{
 
 	// protected static WebDriver driver;
 	
-	private static By allCampaigns = By.xpath("//div[contains(text(),'all campaigns']");
+	// private static By allCampaigns = By.xpath("//div[contains(text(),'all campaigns']");
+	String allCampaigns =  "all_campaigns_page"; 
 	private static By draft = By.xpath("//div[contains(text(),'draft')]");
 	private static By published = By.xpath("//div[contains(text(),'published']");
 	private static By awaitingPublication = By.xpath("//div[contains(text(),'awaiting publication']");
