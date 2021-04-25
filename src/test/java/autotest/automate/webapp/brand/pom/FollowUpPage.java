@@ -17,30 +17,18 @@ import autotest.automate.utility.StringInXpath;
 
 public class FollowUpPage extends BrandAppPage{
 	
-	// private static By pendingInfluencerTab = By.xpath("//div[contains( text(), 'pending influencers')]");
 	static String pendingInfluencerTab = "pending_influencer_tab";
-	//private static By pendingshipementTab = By.xpath("//div[contains( text(), 'pending shipments')]");
 	static String pendingshipementTab = "pending_shipement_tab";
-	//private static By pendingPublicationsTab = By.xpath("");
 	static String pendingPublicationsTab = "pending_publications_tab";
-	// private static By publicationsTab = By.xpath("");
 	static String publicationsTab = "publications_tab";
-    // private static By checkbox = By.className("checkbox-container");
     static String checkbox = "check_box";
-    // private static By warningButtons = By.className("checkbox-container");
     static String warningButtons = "warning_buttons";
-    // private static By successButtons = By.className("success");
     static String successButtons = "success_buttons";
   
-   // private static By approveButton = By.xpath("//span[contains(text(),'Approve')]");
     static String approveButton = "approve_button";
-    // private static By refuseButton = By.xpath("//span[contains(text(),'Refuse')]");
     static String refuseButton = "refuse_button";
- //   private static By Orders = By.className("orders-container");//
-   //  private static By campaignsOrders = By.className("campaign-order-container");//
     static String campaignsOrders = "campaigns_orders";
    
-   // private static By shipbtn = By.xpath("//*[contains(text(),'ship')]");//
    static String shipbtn = "ship_btn";
 
 	
