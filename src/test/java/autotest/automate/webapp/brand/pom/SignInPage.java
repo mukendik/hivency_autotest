@@ -10,9 +10,9 @@ public class SignInPage extends PomBrand{
 	
 	protected WebDriver driver;
 	
-	private By username = By.id("email");
-	private By passWord = By.id("password");
-	private By connectButton = By.className("wrapper-input-submit");
+	static String username = "brand_email";
+	static String passWord = "brand_password";
+	static String connectButton = "wrapper_input_submit";
 	
 	public SignInPage(WebDriver driver) {
 		super();
@@ -21,9 +21,9 @@ public class SignInPage extends PomBrand{
 	
 	public BrandAppPage loginValidBrand(String email, String pass) {
 		
-		driver.findElement(username).sendKeys(email);
-		driver.findElement(passWord).sendKeys(pass);
-		driver.findElement(connectButton).click();
+		getElementByID(username).sendKeys(email);
+		getElementByID(passWord).sendKeys(pass);
+		getElementByClass(connectButton).click();
 		
 		return new BrandAppPage(driver);
 	}

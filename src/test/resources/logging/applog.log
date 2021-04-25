@@ -424,4 +424,8 @@
   2021-04-25 16:00:02 INFO  rootLogger:76 - Param.properties file loaded successfully.
   2021-04-25 16:00:02 INFO  rootLogger:82 - Objects.properties file loaded successfully.
   2021-04-25 16:00:05 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully.
+  2021-04-25 16:24:32 INFO  rootLogger:48 - Execution started for Hivency Automaton.
+  2021-04-25 16:24:32 INFO  rootLogger:76 - Param.properties file loaded successfully.
+  2021-04-25 16:24:32 INFO  rootLogger:82 - Objects.properties file loaded successfully.
+  2021-04-25 16:24:35 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully.
   
