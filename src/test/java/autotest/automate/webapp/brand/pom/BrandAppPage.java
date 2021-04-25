@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import autotest.automate.*;
 
-public class BrandAppPage{
+public class BrandAppPage extends BaseTest{
 	
 	protected static WebDriver driver;
 

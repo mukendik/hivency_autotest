@@ -13,124 +13,106 @@ import org.openqa.selenium.interactions.Actions;
 
 public class CampaignsPage extends BrandAppPage{
 
-	// protected static WebDriver driver;
+
+	static String allCampaigns =  "all_campaigns_page"; 
+	static String draft = "draft_page";
+	static String published = "published_page";
+	static String awaitingPublication = "awaitingPublication_tab";
+	static String completed = "completed_tab";
+	static String createCampaign = "createCampaign_btn";
 	
-	// private static By allCampaigns = By.xpath("//div[contains(text(),'all campaigns']");
-	String allCampaigns =  "all_campaigns_page"; 
-	private static By draft = By.xpath("//div[contains(text(),'draft')]");
-	private static By published = By.xpath("//div[contains(text(),'published']");
-	private static By awaitingPublication = By.xpath("//div[contains(text(),'awaiting publication']");
-	private static By completed = By.xpath("//div[contains(text(),'completed']");
-	private static By createCampaign = By.className("success");
-	
-	private static By campaignName = By.id("campaignName");
-	private static By catchPhrase = By.id("catchPhrase");
-	private static By addPicture = By.id("addPicture");
-	private static By DayPicker = By.cssSelector(".DayPickerInput > input");
-	private static By DayPickerCh1 = By.cssSelector("#root > div.global-content-wrapper > div.content-container > div:nth-child(2) > div > div.mt-3.container-fluid.form > div > div > div.d-flex.flex-column.wrapper-form > div > div.section.d-flex.flex-column > div.d-flex.flex-column.form-group > div.d-flex.flex-row.align-items-center > div.mr-3 > div > div.day-picker-container > div > div > div.DayPicker-Months > div:nth-child(2) > div.DayPicker-Body > div:nth-child(2) > div:nth-child(2)");
-	private static By DayPickerCh2 = By.cssSelector("#root > div.global-content-wrapper > div.content-container > div:nth-child(2) > div > div.mt-3.container-fluid.form > div > div > div.d-flex.flex-column.wrapper-form > div > div.section.d-flex.flex-column");
-	private static By selector = By.className("Select-multi-value-wrapper");
+	static String campaignName = "campaign_name";
+	static String catchPhrase = "catch_phrase";
+	static String addPicture = "add_picture";
+	static String DayPicker = "Day_picker";
+	static String DayPickerCh1 = "Day_pickerCh1";
+	static String DayPickerCh2 = "Day_pickerCh2";
+	static String selector = "selector";
 //	private static By offerSchokolade = By.xpath("//div[contains(text(),'Schokolade')]");
-	private static By offerPoster = By.xpath("//*[contains(text(),'hiver')]");
-	private static By buttonWrapper = By.className("button-wrapper");
-	private static By validateButtonBy = By.className("primary");
+	static String offerPoster = "offer_poster";
+	static String buttonWrapper = "button_wrapper";
+	static String validateBtn = "validate_button";
+	static String collaborationNumber = "quantity";
 
 	
-	private static By notDeleteInstr = By.xpath("//*[contains(text(),'delete')]");
-	private static By selectInstructions = By.xpath("//*[contains(text(),'Select an instruction')]");
-	
-	
+	static String notDeleteInstr = "notDelete_instr";
+	static String selectInstructions = "select_instructions";
 
 	public CampaignsPage(WebDriver driver) {
 		super(driver);
 	}
 	
+	
+	public static void publishedTab() throws InterruptedException {	
+		getElementByXPath("published").click();
+	}
+	
+	public static void awaitingPubTab() throws InterruptedException {
+		getElementByXPath("awaitingPublication").click();
+	}
+	
+	public static void completedTab() throws InterruptedException {
+		getElementByXPath("completed").click();
+	}
+ 
+	public static void allCampaignsTab() throws InterruptedException {
+		getElementByXPath("allCampaigns").click();
+	}
+	
+	public static void draftTab() throws InterruptedException {
+		getElementByXPath("draft").click();
+	}
+	
 	public static void goCampaignCreation() {
-		driver.findElement(createCampaign).click();
-		// return new CampaignsPage(driver);
+		getElementByClass(createCampaign).click();
 	}
 	
 public static void fillStepOne() throws InterruptedException {
 		
 		Thread.sleep(1200); 
-		driver.findElement(campaignName).sendKeys("TNR 09/04/2021");
-		driver.findElement(catchPhrase).sendKeys("TNR autotest");
-		driver.findElement(addPicture).sendKeys("C:\\Users\\Utilisateur\\Desktop\\My Images\\Tests images\\images.jfif");
+		getElementByID(campaignName).sendKeys("TNR 23/04/2021");
+		getElementByID(catchPhrase).sendKeys("TNR autotest revisited");
+		getElementByID(addPicture).sendKeys("C:\\Users\\muken\\Desktop\\images for tests\\test.png");
 		
-	//	 driver.findElement(By.cssSelector(".DayPickerInput > input")).click();
-		 driver.findElement(DayPicker).click();
-		 driver.findElement(DayPickerCh1).click();
-		 driver.findElement(DayPickerCh2).click();
+		getElementByCSS(DayPicker).click();
+		getElementByCSS(DayPickerCh1).click();
+	//	getElementByCSS(DayPickerCh2).click();
 
 		 
 		 JavascriptExecutor javascript = (JavascriptExecutor) driver;
 		 javascript.executeScript("window.scrollBy(0,600)", "");
-		
-		  
-			List<WebElement> select =  driver.findElements(selector);
-			
-			//	select ACTIVITY SECTOR category :: 
-
-			    WebElement activitySector = select.get(0);
-			    Thread.sleep(1000);	
-			    
-			    Actions builder = new Actions(driver);
-			      builder.moveToElement(activitySector).clickAndHold().perform();
-			      
-			  	{
-					  try {
-						Thread.sleep(2000);  
-
-						Actions keyDown = new Actions(driver); 
-						keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN,
-								Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();
-			
-					} catch (InterruptedException e) {
-						
-						System.out.println("echec selection secteur d'activité");
-											
-					}
-				} 
-				 
-				//	 Select nombre de collaboration :: 21
-					 driver.findElement(By.id("quantity")).sendKeys("21");
+			   
+				//	 type number of Collaboration :: 21
+					 getElementByID(collaborationNumber).sendKeys("21");
 			 
 			   //    Select an offer :: Schokolade
+					 selectOffer();
+					 
+			   //	select ACTIVITY SECTOR category :: 
+				    selectCategory();
 		 
-		 WebElement offer = select.get(1);
-	
-						{
-					   
-							  Actions builder0 = new Actions(driver);
-							  builder0.moveToElement(offer).clickAndHold().perform(); 
-						} 
-						{
-							  Thread.sleep(1000); 
-							  WebElement OfferValue =
-							  driver.findElement(offerPoster);
-							  OfferValue.click();
-						} 
 							
 				// validate and continue
-               List<WebElement> buttons = driver.findElements(buttonWrapper);
+               List<WebElement> buttons = getElementsByClass(buttonWrapper);
                
 		 		WebElement validateButton = buttons.get(buttons.size()-1);
-				
-	    		validateButton.click();
-					  
+	  
 				try {
-					
-					WebElement element = driver.findElement(validateButtonBy);
-					JavascriptExecutor executor = (JavascriptExecutor)driver;
-					executor.executeScript("arguments[0].click();", element);	
-					System.out.println("click on validate done ... 2");
+					validateButton.click();
+					Add_Log.debug("click on validate done");
+					/*
+					 * try { WebElement element = getElementByXPath(validateBtn); JavascriptExecutor
+					 * executor = (JavascriptExecutor)driver;
+					 * executor.executeScript("arguments[0].click();", element);
+					 * Add_Log.debug("click on validate done"); }
+					 */
 				}
 				catch (Exception e2) {
-					System.out.println("click on validate not done !!");
+					Add_Log.debug("click on validate not done !!");
 				}
 					Thread.sleep(1000);
-		
 	}
+
 
 	public static void fillStepTwo() throws InterruptedException {
 		//	  select network :: youtube
@@ -187,7 +169,7 @@ public static void fillStepOne() throws InterruptedException {
 			  
 
 		// validate and continue
-              List<WebElement> buttons = driver.findElements(buttonWrapper);
+              List<WebElement> buttons = getElementsByClass(buttonWrapper);
               
 		 		WebElement validateButton = buttons.get(buttons.size()-1);
       
@@ -197,7 +179,7 @@ public static void fillStepOne() throws InterruptedException {
 					  
 				try {
 					
-					WebElement element = driver.findElement(validateButtonBy);
+					WebElement element = getElementByXPath("validateButton");
 					JavascriptExecutor executor2 = (JavascriptExecutor)driver;
 					executor2.executeScript("arguments[0].click();", element);	
 					System.out.println("click on validate done ... 2");
@@ -265,7 +247,7 @@ public static void fillStepOne() throws InterruptedException {
 		executor.executeScript("arguments[0].click();", food);
 
 		// validate and continue
-		List<WebElement> buttons = driver.findElements(By.className("button-wrapper"));
+		List<WebElement> buttons = getElementsByClass(buttonWrapper);
 		WebElement validateButton2 = buttons.get(buttons.size() - 1);
 		validateButton2.click();
 
@@ -314,13 +296,13 @@ public static void fillStepOne() throws InterruptedException {
 
 	public static void fillStepThree() throws InterruptedException {
 		// select an instruction 
-		driver.findElement(selectInstructions).click();
-		 Thread.sleep(200);
-		driver.findElement(notDeleteInstr).click();
+		getElementByXPath(selectInstructions).click();
+		Thread.sleep(200);
+		getElementByXPath(notDeleteInstr).click();
 		// validate and continue
-	   	List<WebElement> buttons = driver.findElements(By.className("button-wrapper"));
-		   WebElement validateButton2 = buttons.get(buttons.size()-1);
-	       validateButton2.click();
+	   	List<WebElement> buttons = getElementsByClass(buttonWrapper);
+		   WebElement validateButton = buttons.get(buttons.size()-1);
+	       validateButton.click();
 	    		
 	       Thread.sleep(4000);
 	}
@@ -333,31 +315,56 @@ public static void fillStepOne() throws InterruptedException {
 		Thread.sleep(2000);
 		
 		 // validate and publish
-			List<WebElement> buttons = driver.findElements(By.className("button-wrapper"));
-		    WebElement validateButton4 = buttons.get(buttons.size()-1);
-			validateButton4.click();
+			List<WebElement> buttons = getElementsByClass(buttonWrapper);
+		    WebElement validateButton = buttons.get(buttons.size()-1);
+			validateButton.click();
 			 		
 		Thread.sleep(4000);
 	}
 	
-	public static void publishedTab() throws InterruptedException {	
-		driver.findElement(published).click();
-	}
+	private static void selectCategory() throws InterruptedException  {
+		
+		List<WebElement> select =  getElementsByClass(selector);
+		WebElement activitySector = select.get(0);
+		    Thread.sleep(1500);	
+		    
+		    Actions builder = new Actions(driver);
+		    builder.moveToElement(activitySector).clickAndHold().perform();
+		    Add_Log.debug("Selecting Category sector ... ");	
+		  	{
+				  try {
+					Thread.sleep(2000);  
+
+					Actions keyDown = new Actions(driver); 
+					keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN,
+							Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();
+					
+					Add_Log.debug("Category sector selected");	
+		
+				} catch (InterruptedException e) {
+					Add_Log.debug("failed to select activity sector");					
+				}
+			} 
+}
 	
-	public static void awaitingPubTab() throws InterruptedException {
-		driver.findElement(awaitingPublication).click();
-	}
+	public static void selectOffer() throws InterruptedException {
+		List<WebElement> select =  getElementsByClass(selector);
+		WebElement offer = select.get(1);
+		
+		{
+	   
+			  Actions builder0 = new Actions(driver);
+			  builder0.moveToElement(offer).clickAndHold().perform(); 
+		} 
+		{
+			  Thread.sleep(1000); 
+			  WebElement OfferValue =
+			  getElementByXPath(offerPoster);
+			  OfferValue.click();
+			  Add_Log.debug("Offer selected");
+		} 
 	
-	public static void completedTab() throws InterruptedException {
-		driver.findElement(completed).click();
-	}
- 
-	public static void allCampaignsTab() throws InterruptedException {
-		driver.findElement(allCampaigns).click();
-	}
-	
-	public static void draftTab() throws InterruptedException {
-		driver.findElement(draft).click();
-	}
+}
+
 
 }
