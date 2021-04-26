@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-04-26T17:30:29 CEST" name="Default suite" finished-at="2021-04-26T17:31:27 CEST" duration-ms="58108">
+  <suite started-at="2021-04-26T17:53:10 CEST" name="Default suite" finished-at="2021-04-26T17:54:03 CEST" duration-ms="53225">
     <groups>
     </groups>
-    <test started-at="2021-04-26T17:30:29 CEST" name="Default test" finished-at="2021-04-26T17:31:27 CEST" duration-ms="58108">
+    <test started-at="2021-04-26T17:53:10 CEST" name="Default test" finished-at="2021-04-26T17:54:03 CEST" duration-ms="53225">
       <class name="autotest.automate.webapp.brand.testcases.CampaignCreation">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:autotest.automate.webapp.brand.testcases.CampaignCreation@71238fc2]" started-at="2021-04-26T17:30:29 CEST" name="setUp" finished-at="2021-04-26T17:30:34 CEST" duration-ms="5227" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:autotest.automate.webapp.brand.testcases.CampaignCreation@71238fc2]" started-at="2021-04-26T17:53:10 CEST" name="setUp" finished-at="2021-04-26T17:53:17 CEST" duration-ms="6669" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="createCampaign()[pri:0, instance:autotest.automate.webapp.brand.testcases.CampaignCreation@71238fc2]" started-at="2021-04-26T17:30:34 CEST" name="createCampaign" finished-at="2021-04-26T17:31:27 CEST" duration-ms="52617" status="PASS">
+        <test-method signature="createCampaign()[pri:0, instance:autotest.automate.webapp.brand.testcases.CampaignCreation@71238fc2]" started-at="2021-04-26T17:53:17 CEST" name="createCampaign" finished-at="2021-04-26T17:54:03 CEST" duration-ms="45935" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createCampaign -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:autotest.automate.webapp.brand.testcases.CampaignCreation@71238fc2]" started-at="2021-04-26T17:31:27 CEST" name="tearDown" finished-at="2021-04-26T17:31:27 CEST" duration-ms="219" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:autotest.automate.webapp.brand.testcases.CampaignCreation@71238fc2]" started-at="2021-04-26T17:54:03 CEST" name="tearDown" finished-at="2021-04-26T17:54:03 CEST" duration-ms="580" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
