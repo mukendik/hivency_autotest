@@ -72,7 +72,8 @@ public static void fillStepOne() throws InterruptedException {
 		Thread.sleep(1200); 
 		getElementByID(campaignName).sendKeys("TNR 26/04/2021");
 		getElementByID(catchPhrase).sendKeys("Funny TNR autotest revisited");
-		getElementByID(addPicture).sendKeys("C:\\Users\\muken\\Desktop\\images for tests\\test.png");
+	//	getElementByID(addPicture).sendKeys("C:\\Users\\muken\\Desktop\\images for tests\\test.png");
+		getElementByID(addPicture).sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\images\\pexels-photo-880459.jpeg");
 		
 		getElementByCSS(DayPicker).click();
 		getElementByCSS(DayPickerCh1).click();
