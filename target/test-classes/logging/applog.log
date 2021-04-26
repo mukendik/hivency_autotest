@@ -460,4 +460,12 @@
   2021-04-25 21:25:36 INFO  Test running on Windows 10:74 - Param.properties file loaded successfully.
   2021-04-25 21:25:36 INFO  Test running on Windows 10:80 - Objects.properties file loaded successfully.
   2021-04-25 21:25:38 INFO  Test running on Windows 10:123 - Chrome Driver Instance loaded successfully.
+  2021-04-26 10:35:00 INFO  rootLogger:48 - Execution started for Hivency Automaton.
+  2021-04-26 10:35:00 INFO  Test running on Windows 10:74 - Param.properties file loaded successfully.
+  2021-04-26 10:35:00 INFO  Test running on Windows 10:80 - Objects.properties file loaded successfully.
+  2021-04-26 10:35:04 INFO  Test running on Windows 10:123 - Chrome Driver Instance loaded successfully.
+  2021-04-26 10:45:46 INFO  rootLogger:48 - Execution started for Hivency Automaton.
+  2021-04-26 10:45:46 INFO  Test running on Windows 10:74 - Param.properties file loaded successfully.
+  2021-04-26 10:45:46 INFO  Test running on Windows 10:80 - Objects.properties file loaded successfully.
+  2021-04-26 10:45:50 INFO  Test running on Windows 10:123 - Chrome Driver Instance loaded successfully.
   

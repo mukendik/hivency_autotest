@@ -67,7 +67,7 @@ public class BrandAppPage extends BaseTest{
 
 	
 	public static void goLangague() {
-		List<WebElement> profile_Elements = getElementsByXPath(profileElements);
+		List<WebElement> profile_Elements = getElementsByClass(profileElements);
 		WebElement language = profile_Elements.get(1);
 		language.click();
 	}

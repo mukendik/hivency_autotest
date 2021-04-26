@@ -227,6 +227,16 @@ public abstract class BaseTest {
 		}
 	}
 	
+	//Call this function to locate elements by cssSelector Locator.
+	public static List<WebElement> getElementsByCSS(String Key){
+		try{
+			return driver.findElements(By.cssSelector(Object.getProperty(Key)));
+		}catch(Throwable t){
+			Add_Log.debug("Object not found for key --"+Key);
+			return null;
+		}
+	}
+	
 	//Call this function to locate element by ClassName Locator.
 	public static WebElement getElementByClass(String Key){
 		try{

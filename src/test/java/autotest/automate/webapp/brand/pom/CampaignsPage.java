@@ -70,8 +70,8 @@ public class CampaignsPage extends BrandAppPage{
 public static void fillStepOne() throws InterruptedException {
 		
 		Thread.sleep(1200); 
-		getElementByID(campaignName).sendKeys("TNR 23/04/2021");
-		getElementByID(catchPhrase).sendKeys("TNR autotest revisited");
+		getElementByID(campaignName).sendKeys("TNR 26/04/2021");
+		getElementByID(catchPhrase).sendKeys("Funny TNR autotest revisited");
 		getElementByID(addPicture).sendKeys("C:\\Users\\muken\\Desktop\\images for tests\\test.png");
 		
 		getElementByCSS(DayPicker).click();

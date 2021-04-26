@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="autotest.automate.webapp.brand.testcases.InfluencerValidation">
+      <class name="autotest.automate.webapp.brand.testcases.CampaignCreation">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="refuseAllInfluencer"/>
+          <include name="createCampaign"/>
         </methods>
-      </class> <!-- autotest.automate.webapp.brand.testcases.InfluencerValidation -->
+      </class> <!-- autotest.automate.webapp.brand.testcases.CampaignCreation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
