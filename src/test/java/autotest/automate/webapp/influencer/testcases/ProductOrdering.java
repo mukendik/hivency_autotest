@@ -6,7 +6,7 @@ import autotest.automate.PomInfluencer;
 import autotest.automate.webapp.influencer.pom.SignInPage;
 import autotest.automate.webapp.influencer.pom.StoreInfluencer;
 
-public class ProductOrdering extends PomInfluencer {
+public class ProductOrdering extends PomInfluencer{
 	
 	@Test
 	public void orderProduct() throws InterruptedException {

@@ -17,20 +17,19 @@ import autotest.automate.utility.StringInXpath;
 
 public class FollowUpPage extends BrandAppPage{
 	
-	private static By pendingInfluencerTab = By.xpath("//div[contains( text(), 'pending influencers')]");
-	private static By pendingshipementTab = By.xpath("//div[contains( text(), 'pending shipments')]");
-	private static By pendingPublicationsTab = By.xpath("");
-	private static By publicationsTab = By.xpath("");
-    private static By checkbox = By.className("checkbox-container");
-    private static By warningButtons = By.className("checkbox-container");
-    private static By successButtons = By.className("success");
+	static String pendingInfluencerTab = "pending_influencer_tab";
+	static String pendingshipementTab = "pending_shipement_tab";
+	static String pendingPublicationsTab = "pending_publications_tab";
+	static String publicationsTab = "publications_tab";
+    static String checkbox = "check_box";
+    static String warningButtons = "warning_buttons";
+    static String successButtons = "success_buttons";
   
-    private static By approveButton = By.xpath("//span[contains(text(),'Approve')]");
-    private static By refuseButton = By.xpath("//span[contains(text(),'Refuse')]");
- //   private static By Orders = By.className("orders-container");//
-    private static By campaignsOrders = By.className("campaign-order-container");//
+    static String approveButton = "approve_button";
+    static String refuseButton = "refuse_button";
+    static String campaignsOrders = "campaigns_orders";
    
-   private static By shipbtn = By.xpath("//*[contains(text(),'ship')]");//
+   static String shipbtn = "ship_btn";
 
 	
 	
@@ -39,27 +38,27 @@ public class FollowUpPage extends BrandAppPage{
 	}
 
 	public static void goPendingInfluencer() {
-		driver.findElement(pendingInfluencerTab).click();
+		getElementByXPath(pendingInfluencerTab).click();
 	}
 		
 	public static void goPendingshipement() {
-		driver.findElement(pendingshipementTab).click();
+		getElementByXPath(pendingshipementTab).click();
 	} 
 	
 	public static void goPendingPublicationsTab() {
-		driver.findElement(pendingPublicationsTab).click();
+		getElementByXPath(pendingPublicationsTab).click();
 	}
 	
 	public static void goPublicationsTab() {
-		driver.findElement(publicationsTab).click();
+		getElementByXPath(publicationsTab).click();
 	}
 	
 	public static void shipAll() throws InterruptedException {
 		
 		goPendingshipement();
 		Thread.sleep(1000);
-		WebElement checkboxContainer = driver.findElement(warningButtons);
-		WebElement markAsShiped = driver.findElement(successButtons);
+		WebElement checkboxContainer = getElementByXPath(warningButtons);
+		WebElement markAsShiped = getElementByClass(successButtons);
 		
 		checkboxContainer.click();
 		Thread.sleep(200);
@@ -72,7 +71,7 @@ public class FollowUpPage extends BrandAppPage{
 		goPendingshipement();
 		Thread.sleep(1000);
 
-		  List<WebElement> shipbtns = driver.findElements(shipbtn); 
+		  List<WebElement> shipbtns = getElementsByXPath(shipbtn); 
 		  int shipmentNumber = shipbtns.size()-3;
 		  
 		  for (WebElement webElement : shipbtns) { 
@@ -107,37 +106,37 @@ public class FollowUpPage extends BrandAppPage{
 	}
 	
 	public static CampaignsPage goPublications() {
-		driver.findElement(publicationsLink).click();
+		getElementByXPath(pendingPublicationsTab).click();
 		return new CampaignsPage(driver);
 	}
 	
 	public static void acceptAllInfluencers() throws InterruptedException {
-		List <WebElement> selectBoxes = driver.findElements(checkbox);
+		List <WebElement> selectBoxes = getElementsByClass(checkbox);
 		System.out.println("There is "+ selectBoxes.size()/2 + " selected influencers");
 		int i = 0;
 		while(i < selectBoxes.size()) {
 			selectBoxes.get(i).click();
 			i = i+2;
 		}
-		driver.findElement(approveButton).click();
+		getElementByXPath(approveButton).click();
 	}
 	
 	public static void refuseAllInfluencers() throws InterruptedException {
-		List <WebElement> selectBoxes = driver.findElements(checkbox);
+		List <WebElement> selectBoxes = getElementsByClass(checkbox);
 		System.out.println("There is : "+ selectBoxes.size()/2 + " selected influencers");
 		int i = 0;
 		while(i < selectBoxes.size()) {
 			selectBoxes.get(i).click();
 			i = i+2;
 		}
-		driver.findElement(refuseButton).click();
+		getElementByXPath(refuseButton).click();
 	}
 	
 		@SuppressWarnings("deprecation")
 		public static void selectCampaign(String campaignName) throws NoSuchElementException {
 			
 		String campaignsXpath = StringInXpath.insertInSpanXpath(campaignName);
-		List <WebElement> campaignsOrdersElements = driver.findElements(campaignsOrders);
+		List <WebElement> campaignsOrdersElements = getElementsByClass(campaignsOrders);
 		
 		System.out.println("There is : "+campaignsOrdersElements.size() +" campaign(s)");
 		
@@ -175,8 +174,7 @@ public class FollowUpPage extends BrandAppPage{
 			
 		}
 		else {
-			System.out.println("There is no pending campaign");
-			
+			System.out.println("There is no pending campaign");	
 		}
 	}
 }

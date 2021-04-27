@@ -10,10 +10,10 @@ import autotest.automate.webapp.brand.pom.SignInPage;
 
 public class CampaignCreation extends PomBrand{
 	
-	// @Test
+	@Test
 	public void createCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
-		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
+		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab  // 191571 Carmen Hernández
 		Thread.sleep(1200);
 		BrandAppPage.goLangague();
 		ProfileMenu.selectBrand();
@@ -30,7 +30,7 @@ public class CampaignCreation extends PomBrand{
 		Thread.sleep(3200);
 	}
 	
-	@Test
+	//@Test
 	public void createReviewCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
 		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab

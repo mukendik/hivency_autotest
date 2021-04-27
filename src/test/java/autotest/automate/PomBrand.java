@@ -13,9 +13,9 @@ import org.openqa.selenium.logging.LogType;
 
 import org.openqa.selenium.logging.Logs;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+
+import autotest.automate.BaseTest;
 
 
 public abstract class PomBrand extends BaseTest{

@@ -5,16 +5,20 @@ import org.openqa.selenium.WebDriver;
 
 
 
-public class SignInPage{
+import autotest.automate.PomInfluencer;
+
+
+public class SignInPage extends PomInfluencer{
 	
 	  protected  WebDriver driver;
 
-	  private By username = By.id("email");
-	  private By password = By.id("password");
-	  private By signinbtn = By.xpath("//span[contains(text(),'se connecter')]");
-	  private By forgotPassword = By.xpath("//*[contains(text(),'mot de passe oublié')]");
-	  private By createAccountbtn = By.xpath("//*[contains(text(),'créer un compte')]");
+	  String user_name = "influencer_email";
+	  String passwd = "influencer_password";
+	  String signin_btn = "btn_se_connecter";
+	  String forgotPassword = "btn_forgot_password";
+	  String createAccountbtn = "btn_create_account";
 	//  private By initiatePasswordLink = RelativeLocator.withTagName("button").below(signinbtn);
+	  String initiatePasswordLinkTag = "button";
 	//  private By createAccountbtn = RelativeLocator.withTagName("button").below(initiatePasswordLink);
 	 
 	  
@@ -30,9 +34,9 @@ public class SignInPage{
 	    * @return HomePage object
 	    */
 	  public StoreInfluencer loginValidUser(String userName, String passWord) {
-	    driver.findElement(username).sendKeys(userName);
-	    driver.findElement(password).sendKeys(passWord);
-	    driver.findElement(signinbtn).click();
+	    getElementByID(user_name).sendKeys(userName);
+	    getElementByID(passwd).sendKeys(passWord);
+	    getElementByXPath(signin_btn).click();
 	    return new StoreInfluencer (driver);
 	  }
 	  
@@ -46,17 +50,16 @@ public class SignInPage{
 		}
 	  
 	  public Initiatepassword forgotPassword (String email) {
-		
 		  return new Initiatepassword(driver);  
 	  }
 	  
 	  public SignUp initiatePassword() {
-		  driver.findElement(forgotPassword).click();
+		  getElementByXPath(forgotPassword).click();
 		  return new SignUp(driver);
 	  }
 	  
 	  public SignUp createAccount() {
-		  driver.findElement(createAccountbtn).click();
+		  getElementByXPath(createAccountbtn).click();
 		  return new SignUp(driver);
 	  }
 }
