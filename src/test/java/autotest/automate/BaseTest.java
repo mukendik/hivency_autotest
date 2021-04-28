@@ -49,7 +49,8 @@ public abstract class BaseTest {
 		
 		String OS = System.getProperty("os.name");
 		
-		Add_Log = Logger.getLogger("Test running on "+ System.getProperty("os.name"));
+	//	Add_Log = Logger.getLogger("Test running on "+ System.getProperty("os.name"));
+		System.out.println("Test running on "+ System.getProperty("os.name"));
 		
 		String paramMac = "//src//test//resources//property//Param.properties";
 		String objectMac = "//src//test//resources//property//Objects.properties";

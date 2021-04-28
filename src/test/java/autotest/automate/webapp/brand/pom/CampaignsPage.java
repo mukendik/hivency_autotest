@@ -71,10 +71,10 @@ public class CampaignsPage extends BrandAppPage {
 	public static void fillStepOne() throws InterruptedException {
 
 		Thread.sleep(1200);
-		getElementByID(campaignName).sendKeys("code factorization phase");
+		getElementByID(campaignName).sendKeys("Test review campaign");
 		getElementByID(catchPhrase).sendKeys("autotest regression revisited");
 		getElementByID(addPicture)
-				.sendKeys(System.getProperty("user.dir") + imagesPath + "pexels-photo-4482900.jpeg");
+				.sendKeys(System.getProperty("user.dir") + imagesPath + "pexels-photo-230544.jpeg");
 
 		getElementByCSS(DayPicker).click();
 		getElementByCSS(DayPickerCh1).click();
@@ -82,7 +82,7 @@ public class CampaignsPage extends BrandAppPage {
 		javascript.executeScript("window.scrollBy(0,600)", "");
 
 		// type number of Collaboration :: 21
-		getElementByID(collaborationNumber).sendKeys("21");
+		getElementByID(collaborationNumber).sendKeys("12");
 
 		// Select an offer :: Schokolade
 		selectOffer();
@@ -97,8 +97,8 @@ public class CampaignsPage extends BrandAppPage {
 	}
 
 	public static void fillStepTwo() throws InterruptedException {
-		// select network :: youtube
-		selectNetwork();
+		// select network :: instagram
+		selectNetwork(Network.instagram);
 
 		// select country
 		selectCountry();
@@ -114,11 +114,7 @@ public class CampaignsPage extends BrandAppPage {
 
 	public static void stepReview() throws InterruptedException {
 		// select network :: Review
-		WebElement ReviewNetwork = driver.findElement(By.id("selectProvider4"));
-
-		javascript.executeScript("arguments[0].click();", ReviewNetwork);
-
-		javascript.executeScript("window.scrollBy(0,500)", "");
+			selectNetwork(Network.review);
 
 			// select country
 			selectCountry();
@@ -132,7 +128,6 @@ public class CampaignsPage extends BrandAppPage {
 		   // POST INSTRUCTIONS
 		   postInstructions();
 	
-
 		   // validate and continue
 		   validateAndContinue();
 
@@ -252,7 +247,6 @@ public class CampaignsPage extends BrandAppPage {
 	}
 
 	private static void selectNetwork() {
-
 		WebElement youtube = driver.findElement(By.id("selectProvider0"));
 		WebElement instagram = driver.findElement(By.id("selectProvider1"));
 		WebElement blog = driver.findElement(By.id("selectProvider2"));
@@ -264,15 +258,25 @@ public class CampaignsPage extends BrandAppPage {
 
 	}
 	
-	private static void selectNetwork(String network) {
-
-		WebElement youtube = driver.findElement(By.id("selectProvider0"));
-		WebElement instagram = driver.findElement(By.id("selectProvider1"));
-		WebElement blog = driver.findElement(By.id("selectProvider2"));
-		WebElement pinterest = driver.findElement(By.id("selectProvider3"));
-
-		javascript.executeScript("arguments[0].click();", network);
-
+	private static void selectNetwork(Network network) {
+		 int i = 0; 
+		 
+		 switch (network) {
+         case youtube   : i = 0;
+                  break;
+         case instagram : i = 1;
+                  break;
+         case blog      : i = 2;
+         		  break;
+         case pinterest : i = 3;
+         		  break;
+         case review :    i = 4;
+         		  break;
+		 }
+		 
+		WebElement networkElement = driver.findElement(By.id("selectProvider"+i));
+		
+		javascript.executeScript("arguments[0].click();", networkElement);
 		javascript.executeScript("window.scrollBy(0,500)", "");
 
 	}
