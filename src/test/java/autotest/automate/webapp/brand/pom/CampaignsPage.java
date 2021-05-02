@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import autotest.automate.utility.StringInXpath;
+
 public class CampaignsPage extends BrandAppPage {
 
 	static String allCampaigns = "all_campaigns_page";
@@ -32,9 +34,27 @@ public class CampaignsPage extends BrandAppPage {
 	static String buttonWrapper = "button_wrapper";
 	static String validateBtn = "validate_button";
 	static String collaborationNumber = "quantity";
+	static String closebtn = "close_btn";
+	
+	// selectUniverse
+	static String beautyUniverse = "beauty";
+	static String FashionUniverse = "Fashion";
+	static String LifeStyleUniverse = "LifeStyle";
+	static String foodUniverse = "food";
+	static String sportUniverse = "sport";
+	static String travelUniverse = "travel";
+	static String decoUniverse = "deco";
+	static String childenUniverse = "childen";
+	static String hightechUniverse = "hightech";
+	static String ArtUniverse = "Art";
 
 	static String notDeleteInstr = "notDelete_instr";
 	static String selectInstructions = "select_instructions";
+	static String postInstruction = "post_instruction";
+	static String reviewName = "review_name";
+	static String reviewUrlbtn = "review_url";
+	static String addReviewbtn = "add_review";
+	
 	
 	static String imagesPath = "\\src\\test\\resources\\images\\";
 	
@@ -45,23 +65,25 @@ public class CampaignsPage extends BrandAppPage {
 	}
 
 	public static void publishedTab() throws InterruptedException {
-		getElementByXPath("published").click();
+		getElementByXPath(published).click();
 	}
 
 	public static void awaitingPubTab() throws InterruptedException {
-		getElementByXPath("awaitingPublication").click();
+		getElementByXPath(awaitingPublication).click();
 	}
 
 	public static void completedTab() throws InterruptedException {
-		getElementByXPath("completed").click();
+		getElementByXPath(completed).click();
 	}
 
 	public static void allCampaignsTab() throws InterruptedException {
-		getElementByXPath("allCampaigns").click();
+		getElementByXPath(allCampaigns).click();
 	}
 
 	public static void draftTab() throws InterruptedException {
-		getElementByXPath("draft").click();
+		WebElement draftElement = getElementByXPath(draft);
+		javascript.executeScript("arguments[0].setAttribute('display', 'none')", draftElement);
+		javascript.executeScript("arguments[0].click();", draftElement);
 	}
 
 	public static void goCampaignCreation() {
@@ -71,10 +93,10 @@ public class CampaignsPage extends BrandAppPage {
 	public static void fillStepOne() throws InterruptedException {
 
 		Thread.sleep(1200);
-		getElementByID(campaignName).sendKeys("code factorization phase");
+		getElementByID(campaignName).sendKeys("Test review campaign");
 		getElementByID(catchPhrase).sendKeys("autotest regression revisited");
 		getElementByID(addPicture)
-				.sendKeys(System.getProperty("user.dir") + imagesPath + "pexels-photo-4482900.jpeg");
+				.sendKeys(System.getProperty("user.dir") + imagesPath + "pexels-photo-230544.jpeg");
 
 		getElementByCSS(DayPicker).click();
 		getElementByCSS(DayPickerCh1).click();
@@ -82,7 +104,7 @@ public class CampaignsPage extends BrandAppPage {
 		javascript.executeScript("window.scrollBy(0,600)", "");
 
 		// type number of Collaboration :: 21
-		getElementByID(collaborationNumber).sendKeys("21");
+		getElementByID(collaborationNumber).sendKeys("12");
 
 		// Select an offer :: Schokolade
 		selectOffer();
@@ -97,8 +119,8 @@ public class CampaignsPage extends BrandAppPage {
 	}
 
 	public static void fillStepTwo() throws InterruptedException {
-		// select network :: youtube
-		selectNetwork();
+		// select network :: instagram
+		selectNetwork(Network.instagram);
 
 		// select country
 		selectCountry();
@@ -113,12 +135,8 @@ public class CampaignsPage extends BrandAppPage {
 	
 
 	public static void stepReview() throws InterruptedException {
-		// select network :: Review
-		WebElement ReviewNetwork = driver.findElement(By.id("selectProvider4"));
-
-		javascript.executeScript("arguments[0].click();", ReviewNetwork);
-
-		javascript.executeScript("window.scrollBy(0,500)", "");
+			// select network :: Review
+			selectNetwork(Network.review);
 
 			// select country
 			selectCountry();
@@ -132,7 +150,6 @@ public class CampaignsPage extends BrandAppPage {
 		   // POST INSTRUCTIONS
 		   postInstructions();
 	
-
 		   // validate and continue
 		   validateAndContinue();
 
@@ -141,47 +158,33 @@ public class CampaignsPage extends BrandAppPage {
 		
 	}
 
-	private static void validateAndPublish() throws InterruptedException {
-		
-		  List<WebElement> buttons = getElementsByClass(buttonWrapper); WebElement
-		  validateButton2 = buttons.get(buttons.size() - 1); validateButton2.click();
-		  
-		  Thread.sleep(6000);
-
-		javascript.executeScript("window.scrollBy(0,700)", "");
-
-		Thread.sleep(4000);
-
-		WebElement validateButton = buttons.get(buttons.size() - 1);
-		validateButton.click();
-		
-	}
-
 	private static void postInstructions() throws InterruptedException {
-		
-		WebElement postInstruction = driver.findElement(By.className("Select-placeholder"));
 
-		postInstruction.click();
+		getElementByClass(postInstruction).click();
+
 		Thread.sleep(4000);
+		
+		// select an instruction  :: post a consumer review on a website
 		Actions EnterKey = new Actions(driver);
 		EnterKey.sendKeys(Keys.chord(Keys.UP, Keys.UP, Keys.ENTER)).perform();
 
 		// Add Website and page url
-		WebElement reviewName = driver.findElement(By.id("Review"));
-		reviewName.sendKeys("AUTO Tests Review");
+		WebElement setReviewName = getElementByID(reviewName);
+		
+		setReviewName.sendKeys("AUTO Tests Review");
 		Thread.sleep(600);
 
-		WebElement reviewUrl = driver.findElement(withTagName("input").toRightOf(reviewName));
+		WebElement reviewUrl = driver.findElement(withTagName("input").toRightOf(setReviewName));
 
 		reviewUrl.sendKeys("http://www.sephora.fr");
 
 		Thread.sleep(600);
 
-		driver.findElement(By.className("review-url")).click();
+		getElementByClass(reviewUrlbtn).click();
 		Thread.sleep(600);
 
 		// Add
-		driver.findElement(By.className("success")).click();
+		getElementByClass(addReviewbtn).click();
 		
 	}
 
@@ -205,27 +208,39 @@ public class CampaignsPage extends BrandAppPage {
 		}
 		Thread.sleep(1000);
 	}
+	
+	private static void validateAndPublish() throws InterruptedException {
+		
+		  List<WebElement> buttons = getElementsByClass(buttonWrapper); 
+		  WebElement validateButton = buttons.get(buttons.size() - 1); 
+		  
+		  validateButton.click();
+		  
+		  Thread.sleep(6000);
 
+		javascript.executeScript("window.scrollBy(0,700)", "");	
+	}
+	
 	private static void selectUniverse() throws InterruptedException {
 		Thread.sleep(2000);
 
-		WebElement beauty = driver.findElement(By.id("4"));
-		WebElement Fashion = driver.findElement(By.id("5"));
-		WebElement LifeStyle = driver.findElement(By.id("7"));
-		WebElement food = driver.findElement(By.id("2")); 
-		WebElement sport = driver.findElement(By.id("3")); 
-		WebElement travel = driver.findElement(By.id("9"));
-		WebElement deco = driver.findElement(By.id("1")); 
-		WebElement photo = driver.findElement(By.id("10")); 
-		WebElement childen = driver.findElement(By.id("6")); 
-		WebElement hightech = driver.findElement(By.id("8")); 
-		WebElement Art = driver.findElement(By.id("11"));
+		WebElement beauty = getElementByID(beautyUniverse);
+		WebElement fashion = getElementByID(FashionUniverse);
+		WebElement lifeStyle = getElementByID(LifeStyleUniverse);
+		WebElement food = getElementByID(foodUniverse);
+		WebElement sport = getElementByID(sportUniverse);
+		WebElement travel = getElementByID(travelUniverse);
+		WebElement deco = getElementByID(decoUniverse);
+		WebElement photo = getElementByID(decoUniverse);
+		WebElement childen = getElementByID(childenUniverse);
+		WebElement hightech = getElementByID(hightechUniverse);
+		WebElement Art = getElementByID(ArtUniverse);
 
 		// Select univers :: Beauté, mode, lifestyle
 
 		javascript.executeScript("arguments[0].click();", beauty);
-		javascript.executeScript("arguments[0].click();", Fashion);
-		javascript.executeScript("arguments[0].click();", LifeStyle);
+		javascript.executeScript("arguments[0].click();", fashion);
+		javascript.executeScript("arguments[0].click();", lifeStyle);
 		javascript.executeScript("arguments[0].click();", deco);
 		javascript.executeScript("arguments[0].click();", food);
 	}
@@ -250,29 +265,26 @@ public class CampaignsPage extends BrandAppPage {
 				Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN,
 				Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();
 	}
-
-	private static void selectNetwork() {
-
-		WebElement youtube = driver.findElement(By.id("selectProvider0"));
-		WebElement instagram = driver.findElement(By.id("selectProvider1"));
-		WebElement blog = driver.findElement(By.id("selectProvider2"));
-		WebElement pinterest = driver.findElement(By.id("selectProvider3"));
-		
-		javascript.executeScript("arguments[0].click();", instagram);
-
-		javascript.executeScript("window.scrollBy(0,500)", "");
-
-	}
 	
-	private static void selectNetwork(String network) {
-
-		WebElement youtube = driver.findElement(By.id("selectProvider0"));
-		WebElement instagram = driver.findElement(By.id("selectProvider1"));
-		WebElement blog = driver.findElement(By.id("selectProvider2"));
-		WebElement pinterest = driver.findElement(By.id("selectProvider3"));
-
-		javascript.executeScript("arguments[0].click();", network);
-
+	private static void selectNetwork(Network network) {
+		 int i = 0; 
+		 
+		 switch (network) {
+         case youtube   : i = 0;
+                  break;
+         case instagram : i = 1;
+                  break;
+         case blog      : i = 2;
+         		  break;
+         case pinterest : i = 3;
+         		  break;
+         case review :    i = 4;
+         		  break;
+		 }
+		 
+		WebElement networkElement = driver.findElement(By.id("selectProvider"+i));
+		
+		javascript.executeScript("arguments[0].click();", networkElement);
 		javascript.executeScript("window.scrollBy(0,500)", "");
 
 	}
@@ -285,10 +297,6 @@ public class CampaignsPage extends BrandAppPage {
 		
 		// validate and continue
 		validateAndContinue();
-		/*
-		 * List<WebElement> buttons = getElementsByClass(buttonWrapper); WebElement
-		 * validateButton = buttons.get(buttons.size() - 1); validateButton.click();
-		 */
 
 		Thread.sleep(4000);
 	}
@@ -345,6 +353,28 @@ public class CampaignsPage extends BrandAppPage {
 			Add_Log.debug("Offer selected");
 		}
 
+	}
+
+	public static void selectCampaign(String campaignName) throws InterruptedException {
+		String campaignToSelect = StringInXpath.insertInSpanXpath(campaignName);
+		driver.findElement(By.xpath(campaignToSelect)).click();
+		Thread.sleep(1000);
+	}
+
+	public static void deleteCampaign(String campaignName) {
+		String campaignToDeleteXpath = StringInXpath.insertInSpanXpath(campaignName);
+		WebElement campaignToDelete = getElementByXPath(campaignToDeleteXpath);
+		WebElement duplicatebtn = driver.findElement(withTagName("button").below(campaignToDelete));
+		WebElement deletebtn = driver.findElement(withTagName("button").below(duplicatebtn));
+		deletebtn.click();
+		
+	}
+	
+	public static void duplicateCampaign(String campaignName) {
+		String campaignToDuplicateXpath = StringInXpath.insertInSpanXpath(campaignName);
+		WebElement campaignToDuplicate = getElementByXPath(campaignToDuplicateXpath);
+		WebElement duplicatebtn = driver.findElement(withTagName("button").below(campaignToDuplicate));
+		duplicatebtn.click();		
 	}
 
 }

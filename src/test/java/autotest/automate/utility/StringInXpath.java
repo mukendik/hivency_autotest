@@ -25,7 +25,7 @@ public class StringInXpath {
     
     public static String insertInDivXpath(String toBeInserted) {
 	  String originalString = "//div[contains(text(),'')]";
-	  int index = 24;
+	  int index = 22;
 	return insertString(originalString,toBeInserted,index);	
 }
 }

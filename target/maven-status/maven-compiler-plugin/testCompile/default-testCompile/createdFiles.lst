@@ -10,6 +10,7 @@ autotest\automate\webapp\brand\testcases\Shipment.class
 autotest\automate\webapp\influencer\testcases\Registration.class
 autotest\automate\webapp\brand\pom\ImagesPage.class
 autotest\automate\webapp\influencer\pom\InfluencerAccount.class
+autotest\automate\webapp\brand\pom\CampaignsPage$1.class
 autotest\automate\webapp\brand\testcases\InfluencerValidation.class
 autotest\automate\webapp\influencer\testcases\InfluencerProfileManagement.class
 autotest\automate\webapp\influencer\pom\SignInPage.class
@@ -24,6 +25,7 @@ autotest\automate\webapp\influencer\pom\Orders.class
 autotest\automate\PomBrand.class
 autotest\automate\webapp\brand\pom\InfluencersPage.class
 autotest\automate\webapp\brand\pom\SignInPage.class
+autotest\automate\webapp\brand\pom\Network.class
 autotest\automate\webapp\influencer\pom\Messaging.class
 autotest\automate\webapp\brand\pom\MessagingPage.class
 autotest\automate\webapp\brand\pom\ProfileMenu.class
