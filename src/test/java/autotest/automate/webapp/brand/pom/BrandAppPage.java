@@ -39,33 +39,32 @@ public class BrandAppPage extends BaseTest{
 		return new CampaignsPage(driver);
 	}
 	
-	public static CampaignsPage goInfluencers() {
+	public static InfluencersPage goInfluencers() {
 		getElementByXPath(influencersLink).click();
-		return new CampaignsPage(driver);
+		return new InfluencersPage(driver);
 	}
 	
-	public static CampaignsPage goMessages() {
+	public static MessagingPage goMessages() {
 		getElementByXPath(messagingLink).click();
-		return new CampaignsPage(driver);
+		return new MessagingPage(driver);
 	}
 	
-	public static CampaignsPage goImages() {
+	public static ImagesPage goImages() {
 		getElementByXPath(imagesLink).click();
-		return new CampaignsPage(driver);
+		return new ImagesPage(driver);
 	}
 	
-	public static CampaignsPage goOffers() {
+	public static OffersPage goOffers() {
 		getElementByXPath(offersLink).click();
-		return new CampaignsPage(driver);
+		return new OffersPage(driver);
 	}
 	
-	public static CampaignsPage goStatistics() {
+	public static StatisticsPage goStatistics() {
 		getElementByXPath(statisticslink).click();
-		return new CampaignsPage(driver);
+		return new StatisticsPage(driver);
 	}
 	
 
-	
 	public static void goLangague() {
 		List<WebElement> profile_Elements = getElementsByClass(profileElements);
 		WebElement language = profile_Elements.get(1);
