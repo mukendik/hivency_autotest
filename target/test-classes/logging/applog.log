@@ -806,4 +806,20 @@
   2021-05-02 15:10:48 INFO  rootLogger:75 - Param.properties file loaded successfully.
   2021-05-02 15:10:48 INFO  rootLogger:81 - Objects.properties file loaded successfully.
   2021-05-02 15:10:51 INFO  rootLogger:124 - Chrome Driver Instance loaded successfully.
+  2021-05-02 15:17:06 INFO  rootLogger:48 - Execution started for Hivency Automaton.
+  2021-05-02 15:17:06 INFO  rootLogger:75 - Param.properties file loaded successfully.
+  2021-05-02 15:17:06 INFO  rootLogger:81 - Objects.properties file loaded successfully.
+  2021-05-02 15:17:08 INFO  rootLogger:124 - Chrome Driver Instance loaded successfully.
+  2021-05-03 21:45:55 INFO  rootLogger:48 - Execution started for Hivency Automaton.
+  2021-05-03 21:45:55 INFO  rootLogger:75 - Param.properties file loaded successfully.
+  2021-05-03 21:45:55 INFO  rootLogger:81 - Objects.properties file loaded successfully.
+  2021-05-03 21:45:58 INFO  rootLogger:124 - Chrome Driver Instance loaded successfully.
+  2021-05-03 21:48:53 INFO  rootLogger:48 - Execution started for Hivency Automaton.
+  2021-05-03 21:48:53 INFO  rootLogger:75 - Param.properties file loaded successfully.
+  2021-05-03 21:48:53 INFO  rootLogger:81 - Objects.properties file loaded successfully.
+  2021-05-03 21:48:56 INFO  rootLogger:124 - Chrome Driver Instance loaded successfully.
+  2021-05-03 21:56:22 INFO  rootLogger:48 - Execution started for Hivency Automaton.
+  2021-05-03 21:56:22 INFO  rootLogger:75 - Param.properties file loaded successfully.
+  2021-05-03 21:56:22 INFO  rootLogger:81 - Objects.properties file loaded successfully.
+  2021-05-03 21:56:25 INFO  rootLogger:124 - Chrome Driver Instance loaded successfully.
   

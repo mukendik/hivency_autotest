@@ -356,13 +356,13 @@ public class CampaignsPage extends BrandAppPage {
 	}
 
 	public static void selectCampaign(String campaignName) throws InterruptedException {
-		String campaignToSelect = StringInXpath.insertInSpanXpath(campaignName);
+		String campaignToSelect = StringInXpath.insertInDivXpath(campaignName);
 		driver.findElement(By.xpath(campaignToSelect)).click();
 		Thread.sleep(1000);
 	}
 
 	public static void deleteCampaign(String campaignName) {
-		String campaignToDeleteXpath = StringInXpath.insertInSpanXpath(campaignName);
+		String campaignToDeleteXpath = StringInXpath.insertInDivXpath(campaignName);
 		WebElement campaignToDelete = getElementByXPath(campaignToDeleteXpath);
 		WebElement duplicatebtn = driver.findElement(withTagName("button").below(campaignToDelete));
 		WebElement deletebtn = driver.findElement(withTagName("button").below(duplicatebtn));
