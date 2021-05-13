@@ -332,8 +332,8 @@ public class CampaignsPage extends BrandAppPage {
 
 		{
 
-			Actions builder0 = new Actions(driver);
-			builder0.moveToElement(offer).clickAndHold().perform();
+			Actions builder = new Actions(driver);
+			builder.moveToElement(offer).clickAndHold().perform();
 		}
 		{
 			Thread.sleep(1000);
@@ -344,18 +344,46 @@ public class CampaignsPage extends BrandAppPage {
 
 	}
 
-	public static void selectCampaign(String campaignName) throws InterruptedException {
-		String campaignToSelect = StringInXpath.insertInSpanXpath(campaignName);
-		driver.findElement(By.xpath(campaignToSelect)).click();
+	public static void selectCampaign(String campaignName) throws InterruptedException {		
+		
+		List <WebElement> campaignList = driver.findElements(By.className("campaign-name"));
+		for (WebElement campaign : campaignList) {
+			try {
+				if(campaign.getText().toLowerCase().equals(campaignName.toLowerCase())) {
+					// campaign.click();
+					System.out.println("Campaign "+campaignName+" found");
+					javascript.executeScript("arguments[0].click();", campaign);
+
+				}
+			}
+			catch(Exception StaleElementReferenceException){
+				StaleElementReferenceException.getMessage();
+			}
+		}
+		
 		Thread.sleep(1000);
 	}
 
-	public static void deleteCampaign(String campaignName) {
-		String campaignToDeleteXpath = StringInXpath.insertInDivXpath(campaignName);
-		WebElement campaignToDelete = getElementByXPath(campaignToDeleteXpath);
-		WebElement duplicatebtn = driver.findElement(withTagName("button").below(campaignToDelete));
-		WebElement deletebtn = driver.findElement(withTagName("button").below(duplicatebtn));
-		deletebtn.click();
+	public static void deleteCampaign(String campaignName) throws InterruptedException {
+		List <WebElement> campaignList = driver.findElements(By.className("campaign-name"));
+		for (WebElement campaign : campaignList) {
+			try {
+				if(campaign.getText().toLowerCase().equals(campaignName.toLowerCase())) {
+					// campaign.click();
+					System.out.println("Campaign "+campaignName+" found");
+				//	javascript.executeScript("arguments[0].click();", campaign);
+					
+					WebElement duplicatebtn = driver.findElement(withTagName("button").below(campaign));
+					WebElement deletebtn = driver.findElement(withTagName("button").below(duplicatebtn));
+					javascript.executeScript("arguments[0].click();", deletebtn);
+					System.out.println("Campaign "+campaignName+" deleted successfully !");
+				}
+			}catch(Exception StaleElementReferenceException){
+				StaleElementReferenceException.getMessage();
+			}
+		}
+		
+		Thread.sleep(1000);
 		
 	}
 	
