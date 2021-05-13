@@ -24,7 +24,7 @@ public class SignUp {
 	
 	public static CompleteProfile accountCreation() throws InterruptedException{
 	
-		driver.findElement(username).sendKeys("testtnr04.09.21@yopmail.com");
+		driver.findElement(username).sendKeys("testtnr07.05.21@yopmail.com");
 		driver.findElement(password).sendKeys("Toto@lolo.net123456");
 		driver.findElement(confirmPassword).sendKeys("Toto@lolo.net123456");
 		driver.findElement(createButtonOne).click();

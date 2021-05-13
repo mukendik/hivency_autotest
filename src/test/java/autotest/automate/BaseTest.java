@@ -1,17 +1,14 @@
 package autotest.automate;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.OptionConverter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +17,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.locators.RelativeLocator;
 
 
@@ -31,9 +29,10 @@ public abstract class BaseTest {
 	public static Properties Param = null;
 	public static Properties Object = null;
 	protected static WebDriver driver=null;
-	public static WebDriver ExistingchromeBrowser;
-	public static WebDriver ExistingmozillaBrowser;
+	protected static WebDriver ExistingchromeBrowser;
+	protected static WebDriver ExistingmozillaBrowser;
 	protected static WebDriver ExistingIEBrowser;
+	protected static JavascriptExecutor javascript;
 	
 
 
@@ -114,21 +113,24 @@ public abstract class BaseTest {
 				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\Webdrivers\\Windows\\Mozilla\\geckodriver.exe");
 				driver = new FirefoxDriver();
 				ExistingmozillaBrowser=driver;
-				Add_Log.info("Firefox Driver Instance loaded successfully.");
+				javascript = (JavascriptExecutor) driver;
+				Add_Log.info("Firefox Driver Instance loaded successfully.with Session id :" + ((RemoteWebDriver) driver).getSessionId());
 				
 			}else if(Param.getProperty("testBrowser").equalsIgnoreCase("Chrome")){
 				//To Load Chrome driver Instance.
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ chromeDriver);
 				driver = new ChromeDriver();
 				ExistingchromeBrowser=driver;
-				Add_Log.info("Chrome Driver Instance loaded successfully.");
+				javascript = (JavascriptExecutor) driver;
+				Add_Log.info("Chrome Driver Instance loaded successfully with Session id :" + ((RemoteWebDriver) driver).getSessionId());
 				
 			}else if(Param.getProperty("testBrowser").equalsIgnoreCase("IE")){
 				//To Load IE driver Instance.
 				System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+ "\\src\\test\\resources\\Webdrivers\\Windows\\IE\\IEDriverServer.exe");
 				driver = new InternetExplorerDriver();
 				ExistingIEBrowser=driver;
-				Add_Log.info("IE Driver Instance loaded successfully.");
+				javascript = (JavascriptExecutor) driver;
+				Add_Log.info("IE Driver Instance loaded successfully with Session id :" + ((RemoteWebDriver) driver).getSessionId());
 				
 			}			
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -143,6 +145,7 @@ public abstract class BaseTest {
 		ExistingchromeBrowser=null;
 		ExistingmozillaBrowser=null;
 		ExistingIEBrowser=null;
+		javascript=null;
 	}
 	
 	public void connection(String mail, String password) {

@@ -19,7 +19,7 @@ public class SignInPage extends BrandAppPage{
 	}
 	
 	public BrandAppPage loginValidBrand(String email, String pass) {
-		
+		driver.manage().deleteAllCookies();
 		getElementByID(username).sendKeys(email);
 		getElementByID(passWord).sendKeys(pass);
 		getElementByClass(connectButton).click();
@@ -28,7 +28,6 @@ public class SignInPage extends BrandAppPage{
 	}
 	
 	public BrandAppPage loginValidBrand(int id) throws InterruptedException {
-		driver.manage().deleteAllCookies();
 		loginValidBrand("ghislain.mukendi@hivency.com", "Hivency01");
 		 Thread.sleep(1000);
 		driver.get("https://app.hivency-release.com/?fake_user_id=" + id);

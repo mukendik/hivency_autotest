@@ -57,8 +57,7 @@ public class CampaignsPage extends BrandAppPage {
 	
 	
 	static String imagesPath = "\\src\\test\\resources\\images\\";
-	
-	static JavascriptExecutor javascript = (JavascriptExecutor) driver;
+
 
 	public CampaignsPage(WebDriver driver) {
 		super(driver);
@@ -82,6 +81,7 @@ public class CampaignsPage extends BrandAppPage {
 
 	public static void draftTab() throws InterruptedException {
 		WebElement draftElement = getElementByXPath(draft);
+		// javascript = (JavascriptExecutor) driver;
 		javascript.executeScript("arguments[0].setAttribute('display', 'none')", draftElement);
 		javascript.executeScript("arguments[0].click();", draftElement);
 	}
@@ -93,14 +93,14 @@ public class CampaignsPage extends BrandAppPage {
 	public static void fillStepOne() throws InterruptedException {
 
 		Thread.sleep(1200);
-		getElementByID(campaignName).sendKeys("Test review campaign");
+		getElementByID(campaignName).sendKeys("Regression 07/05 campaign");
 		getElementByID(catchPhrase).sendKeys("autotest regression revisited");
 		getElementByID(addPicture)
 				.sendKeys(System.getProperty("user.dir") + imagesPath + "pexels-photo-230544.jpeg");
 
 		getElementByCSS(DayPicker).click();
 		getElementByCSS(DayPickerCh1).click();
-
+		
 		javascript.executeScript("window.scrollBy(0,600)", "");
 
 		// type number of Collaboration :: 21
@@ -110,7 +110,7 @@ public class CampaignsPage extends BrandAppPage {
 		selectOffer();
 
 		// select ACTIVITY SECTOR category ::
-		selectCategory();
+		selectCategories();
 
 		// validate and continue
 		validateAndContinue();
@@ -135,13 +135,13 @@ public class CampaignsPage extends BrandAppPage {
 	
 
 	public static void stepReview() throws InterruptedException {
-			// select network :: Review
-			selectNetwork(Network.review);
+		   // select network :: Review
+		   selectNetwork(Network.review);
 
-			// select country
-			selectCountry();
+		   // select country
+		   selectCountry();
 		
-			// select universe
+		   // select universe
 		   selectUniverse();
 
 		   // validate and continue
@@ -153,8 +153,8 @@ public class CampaignsPage extends BrandAppPage {
 		   // validate and continue
 		   validateAndContinue();
 
-			// validate and publish
-			validateAndPublish();
+		   // validate and publish
+		   validateAndPublish();
 		
 	}
 
@@ -195,17 +195,6 @@ public class CampaignsPage extends BrandAppPage {
 
 		validateButton.click();
 
-		Add_Log.info("click on validate done ... 1");
-
-		try {
-
-			WebElement element = getElementByXPath("validateButton");
-			
-			javascript.executeScript("arguments[0].click();", element);
-			Add_Log.info("click on validate done after retry ... ");
-		} catch (Exception e2) {
-			Add_Log.info("click on validate not done !!");
-		}
 		Thread.sleep(1000);
 	}
 	
@@ -312,7 +301,7 @@ public class CampaignsPage extends BrandAppPage {
 
 	}
 
-	private static void selectCategory() throws InterruptedException {
+	private static void selectCategories() throws InterruptedException {
 
 		List<WebElement> select = getElementsByClass(selector);
 		WebElement activitySector = select.get(0);
@@ -329,10 +318,10 @@ public class CampaignsPage extends BrandAppPage {
 				keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.DOWN,
 						Keys.DOWN, Keys.ENTER)).perform();
 
-				Add_Log.debug("Category sector selected");
+				Add_Log.info("Category sector selected");
 
 			} catch (InterruptedException e) {
-				Add_Log.debug("failed to select activity sector");
+				Add_Log.info("failed to select activity sector");
 			}
 		}
 	}
@@ -356,7 +345,7 @@ public class CampaignsPage extends BrandAppPage {
 	}
 
 	public static void selectCampaign(String campaignName) throws InterruptedException {
-		String campaignToSelect = StringInXpath.insertInDivXpath(campaignName);
+		String campaignToSelect = StringInXpath.insertInSpanXpath(campaignName);
 		driver.findElement(By.xpath(campaignToSelect)).click();
 		Thread.sleep(1000);
 	}

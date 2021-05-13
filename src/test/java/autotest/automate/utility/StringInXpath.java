@@ -28,4 +28,9 @@ public class StringInXpath {
 	  int index = 22;
 	return insertString(originalString,toBeInserted,index);	
 }
+    public static String insertInAnyXpath(String toBeInserted) {
+  	  String originalString = "//*[contains(text(),'')]";
+  	  int index = 20;
+  	return insertString(originalString,toBeInserted,index);	
+  }
 }

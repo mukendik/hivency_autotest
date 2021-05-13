@@ -2,6 +2,7 @@ package autotest.automate.webapp.brand.testcases;
 
 import static org.testng.Assert.assertEquals;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import autotest.automate.PomBrand;
@@ -34,7 +35,7 @@ public class CampaignCreation extends PomBrand{
     	// toast message "Your campaigns was successfully published
 	}
 	
-	//@Test
+	// @Test
 	public void createReviewCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
 		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
@@ -90,7 +91,7 @@ public class CampaignCreation extends PomBrand{
 		// assertEquals(actual, expected);
 	}
 	
-	@Test
+	// @Test
 	public void deleteCampaign() throws InterruptedException {
 		
 		SignInPage brandSignIn = new SignInPage(driver);
@@ -105,11 +106,32 @@ public class CampaignCreation extends PomBrand{
 		Thread.sleep(1000);
 		CampaignsPage.draftTab();
 		Thread.sleep(4000);
-		CampaignsPage.selectCampaign("La stampa su tela (Copy_1)");
+		CampaignsPage.selectCampaign("Okkkkkk");
+		Thread.sleep(4000);
 	//	CampaignsPage.deleteCampaign("campaignName");
 	//	assertEquals(driver.getCurrentUrl(), "https://app.hivency-release.com/campaigns/draft");	
 	}
-	
+	@Test
+	public void deleteCampaign1() throws InterruptedException {
+		
+		SignInPage brandSignIn = new SignInPage(driver);
+		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
+		
+		Thread.sleep(1200);
+		BrandAppPage.goLangague();
+		ProfileMenu.selectBrand();
+		Thread.sleep(800);
+		ProfileMenu.changeLanguage();
+		BrandAppPage.goCampaigns();
+		Thread.sleep(1000);
+		CampaignsPage.draftTab();
+		Thread.sleep(4200);
+		driver.findElement(By.xpath("//*[contains(text(),'Okkkkkk')]")).click();
+		// CampaignsPage.selectCampaign("Okkkkkk");
+	//	Thread.sleep(2000);
+	//	CampaignsPage.deleteCampaign("campaignName");
+	//	assertEquals(driver.getCurrentUrl(), "https://app.hivency-release.com/campaigns/draft");	
+	}
 	
 
 }
