@@ -1657,4 +1657,68 @@
   2021-05-15 15:20:58 INFO  rootLogger:80 - Objects.properties file loaded successfully.
   2021-05-15 15:21:00 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :167f130356e20a6fbe3f9bc7d35b682a
   2021-05-15 15:21:15 INFO  rootLogger:383 - Campaign Test review campaign instagram found
+  2021-05-15 15:39:22 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 15:39:22 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 15:39:22 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 15:39:24 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :c9061d1e99646e91d30dbe2e74af2ead
+  2021-05-15 15:43:01 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 15:43:01 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 15:43:01 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 15:43:03 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :2955ec0576f14317c5f956678e7158cf
+  2021-05-15 15:49:44 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 15:49:44 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 15:49:44 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 15:49:46 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :1b707c59d6593d8168212f1cfd7ddaa8
+  2021-05-15 15:50:35 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 15:50:35 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 15:50:35 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 15:50:37 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :347aba2bddd632ecbaad5b0dbbd9cf76
+  2021-05-15 15:50:50 INFO  rootLogger:404 - Campaign okkkkkk found
+  2021-05-15 15:50:50 INFO  rootLogger:410 - campaign okkkkkk duplicated successfully !
+  2021-05-15 15:53:26 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 15:53:26 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 15:53:26 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 15:53:28 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :7263ad9d5e686efb0dbfc04ff6133f9a
+  2021-05-15 15:53:40 INFO  rootLogger:402 - Campaign okkkkkk found
+  2021-05-15 15:53:40 INFO  rootLogger:406 - campaign okkkkkk duplicated successfully !
+  2021-05-15 15:55:19 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 15:55:19 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 15:55:19 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 15:55:21 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :c6fb78cfcd5fb60289a4dff731dd18ea
+  2021-05-15 15:55:35 INFO  rootLogger:402 - Campaign okkkkkk found
+  2021-05-15 15:55:35 INFO  rootLogger:406 - campaign okkkkkk duplicated successfully !
+  2021-05-15 15:58:16 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 15:58:16 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 15:58:16 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 15:58:18 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :a9a9a773e73c489b295622c2398c1df2
+  2021-05-15 15:58:32 INFO  rootLogger:402 - Campaign okkkkkk found
+  2021-05-15 15:58:32 INFO  rootLogger:406 - campaign okkkkkk duplicated successfully !
+  2021-05-15 16:02:48 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:02:48 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:02:48 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:02:50 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :acfdd482ed6256bcd535c6ff713ca464
+  2021-05-15 16:03:03 INFO  rootLogger:402 - Campaign okkkkkk found
+  2021-05-15 16:03:03 INFO  rootLogger:403 - Duplicating campaign okkkkkk  ...
+  2021-05-15 16:03:03 INFO  rootLogger:407 - campaign okkkkkk duplicated successfully !
+  2021-05-15 16:06:01 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:06:01 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:06:01 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:06:03 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :3684d977aaf1a8aea1b55cb360d64cf7
+  2021-05-15 16:06:15 INFO  rootLogger:402 - Campaign okkkkkk found
+  2021-05-15 16:06:15 INFO  rootLogger:403 - Duplicating campaign okkkkkk  ...
+  2021-05-15 16:06:15 INFO  rootLogger:407 - campaign okkkkkk duplicated successfully !
+  2021-05-15 16:10:10 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:10:10 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:10:10 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:10:12 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :43597c0b63622cdddef172698207abe8
+  2021-05-15 16:10:23 INFO  rootLogger:403 - Campaign okkkkkk found
+  2021-05-15 16:10:23 INFO  rootLogger:404 - Duplicating campaign okkkkkk  ...
+  2021-05-15 16:10:23 INFO  rootLogger:408 - campaign okkkkkk duplicated successfully !
+  2021-05-15 16:11:21 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:11:21 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:11:21 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:11:23 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :9a27c31c7b05f19133c119adda05fff8
+  2021-05-15 16:11:34 INFO  rootLogger:403 - Campaign okkkkkk found
+  2021-05-15 16:11:34 INFO  rootLogger:404 - Duplicating campaign okkkkkk  ...
+  2021-05-15 16:11:35 INFO  rootLogger:408 - campaign okkkkkk duplicated successfully !
   

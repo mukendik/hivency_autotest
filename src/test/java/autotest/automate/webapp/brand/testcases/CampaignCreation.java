@@ -79,7 +79,7 @@ public class CampaignCreation extends PomBrand{
 		
 	}
 	
-	// @Test
+	@Test
 	public void duplicateCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
 		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
@@ -90,13 +90,12 @@ public class CampaignCreation extends PomBrand{
 		ProfileMenu.changeLanguage();
 		BrandAppPage.goCampaigns();
 		Thread.sleep(1200);
-		CampaignsPage.awaitingPubTab();
-		// further implementations needed
-		
-		// assertEquals(actual, expected);
+		CampaignsPage.draftTab();
+		CampaignsPage.duplicateCampaign("okkkkkk");
+		assertEquals(driver.getCurrentUrl(), "https://app.hivency-release.com/campaigns/draft");
 	}
 	
-	@Test
+	// @Test
 	public void deleteCampaign() throws InterruptedException {
 		
 		SignInPage brandSignIn = new SignInPage(driver);

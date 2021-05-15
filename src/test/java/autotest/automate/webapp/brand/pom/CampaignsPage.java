@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -356,7 +357,6 @@ public class CampaignsPage extends BrandAppPage {
 		for (WebElement campaign : campaignList) {
 			try {
 				if (campaign.getText().toLowerCase().equals(campaignName.toLowerCase())) {
-					// campaign.click();
 					System.out.println("Campaign " + campaignName + " found");
 					javascript.executeScript("arguments[0].click();", campaign);
 
@@ -377,8 +377,7 @@ public class CampaignsPage extends BrandAppPage {
 		for (WebElement campaign : campaignList) {
 
 				int i = campaignList.indexOf(campaign)+1;
-				System.out.println("campagne "+campaign+" N° :"+i);
-				
+
 				if(campaign.getText().toLowerCase().equals(campaignName.toLowerCase())) {
 					Add_Log.info("Campaign "+campaignName+" found");
 					Thread.sleep(200);
@@ -386,15 +385,33 @@ public class CampaignsPage extends BrandAppPage {
 					 deletebtn.click(); 
 					// assertThat(driver.switchTo().alert().getText(), is("Are you sure you want to delete the "+campaignName+" campaign?"));
 					driver.switchTo().alert().accept();
+					Add_Log.info("campaign "+campaignName+" deleted successfully !");
 				}
 			}
 	}
 
-	public static void duplicateCampaign(String campaignName) {
-		String campaignToDuplicateXpath = StringInXpath.insertInSpanXpath(campaignName);
-		WebElement campaignToDuplicate = getElementByXPath(campaignToDuplicateXpath);
-		WebElement duplicatebtn = driver.findElement(withTagName("button").below(campaignToDuplicate));
-		duplicatebtn.click();
+	public static void duplicateCampaign(String campaignName) throws InterruptedException {
+		Thread.sleep(1600);
+		List<WebElement> campaignList = driver.findElements(By.className("campaign-name"));
+		System.out.println("There are : " + campaignList.size() + " campaigns available");
+		
+		for (WebElement campaign : campaignList) {
+
+				int i = campaignList.indexOf(campaign)+1;
+		try {
+			if(campaign.getText().toLowerCase().equals(campaignName.toLowerCase())) {
+				Add_Log.info("Campaign "+campaignName+" found");
+				Add_Log.info("Duplicating campaign "+campaignName+"  ...");
+				Thread.sleep(200);
+				WebElement duplicatebtn = driver.findElement(By.cssSelector(".mb-3:nth-child("+i+") .inline-buttons > .button-wrapper .d-flex"));	
+				duplicatebtn.click(); 
+				Add_Log.info("campaign "+campaignName+" duplicated successfully !");
+			}
+		}catch(StaleElementReferenceException e) {
+			e.printStackTrace();
+		}
+		
+			}
 	}
 
 }
