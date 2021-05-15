@@ -1,24 +1,17 @@
 package autotest.automate.webapp.brand.pom;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+
 import static org.openqa.selenium.support.locators.RelativeLocator.withTagName;
 
 import java.util.List;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import autotest.automate.utility.StringInXpath;
 
 public class CampaignsPage extends BrandAppPage {
 
@@ -69,24 +62,31 @@ public class CampaignsPage extends BrandAppPage {
 	}
 
 	public static void publishedTab() throws InterruptedException {
-		getElementByXPath(published).click();
+		WebElement publishedElement = getElementByXPath(published);
+		javascript.executeScript("arguments[0].setAttribute('display', 'none')", publishedElement);
+		javascript.executeScript("arguments[0].click();", publishedElement);
 	}
 
 	public static void awaitingPubTab() throws InterruptedException {
-		getElementByXPath(awaitingPublication).click();
+		WebElement awaitingPublicationElement = getElementByXPath(awaitingPublication);
+		javascript.executeScript("arguments[0].setAttribute('display', 'none')", awaitingPublicationElement);
+		javascript.executeScript("arguments[0].click();", awaitingPublicationElement);
 	}
 
 	public static void completedTab() throws InterruptedException {
-		getElementByXPath(completed).click();
+		WebElement completedElement = getElementByXPath(completed);
+		javascript.executeScript("arguments[0].setAttribute('display', 'none')", completedElement);
+		javascript.executeScript("arguments[0].click();", completedElement);
 	}
 
 	public static void allCampaignsTab() throws InterruptedException {
-		getElementByXPath(allCampaigns).click();
+		WebElement allCampaignsElement = getElementByXPath(allCampaigns);
+		javascript.executeScript("arguments[0].setAttribute('display', 'none')", allCampaignsElement);
+		javascript.executeScript("arguments[0].click();", allCampaignsElement);
 	}
 
 	public static void draftTab() throws InterruptedException {
 		WebElement draftElement = getElementByXPath(draft);
-		// javascript = (JavascriptExecutor) driver;
 		javascript.executeScript("arguments[0].setAttribute('display', 'none')", draftElement);
 		javascript.executeScript("arguments[0].click();", draftElement);
 	}
@@ -359,7 +359,6 @@ public class CampaignsPage extends BrandAppPage {
 				if (campaign.getText().toLowerCase().equals(campaignName.toLowerCase())) {
 					System.out.println("Campaign " + campaignName + " found");
 					javascript.executeScript("arguments[0].click();", campaign);
-
 				}
 			} catch (Exception StaleElementReferenceException) {
 				StaleElementReferenceException.getMessage();
@@ -411,7 +410,32 @@ public class CampaignsPage extends BrandAppPage {
 			e.printStackTrace();
 		}
 		
+	  }
+	}
+	
+	public static void closeCampaign(String campaignName) throws InterruptedException {
+		Thread.sleep(2000);
+		List<WebElement> campaignList = driver.findElements(By.className("campaign-name"));
+		System.out.println("There are : " + campaignList.size() + " campaigns available");
+		
+		for (WebElement campaign : campaignList) {
+
+				int i = campaignList.indexOf(campaign)+1;
+		try {
+			if(campaign.getText().toLowerCase().equals(campaignName.toLowerCase())) {
+				Add_Log.info("Campaign "+campaignName+" found");
+				Add_Log.info("Closing campaign "+campaignName+"  ...");
+				Thread.sleep(200);	
+				WebElement closebtn = driver.findElement(By.cssSelector(".mb-3:nth-child("+i+") > .all-buttons .col-6:nth-child(2) .d-flex"));	
+				closebtn.click(); 
+				driver.switchTo().alert().accept();
+				Add_Log.info("campaign "+campaignName+" closed successfully !");
 			}
+		}catch(StaleElementReferenceException e) {
+			e.printStackTrace();
+		}
+		
+	  }
 	}
 
 }

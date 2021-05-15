@@ -1,13 +1,8 @@
 package autotest.automate.webapp.brand.testcases;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import static org.testng.Assert.assertEquals;
 
-import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import autotest.automate.PomBrand;
@@ -61,7 +56,7 @@ public class CampaignCreation extends PomBrand{
 		// toast message "your campaigns is successfully published
 	}
 	
-	// @Test
+	@Test
 	public void closeCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
 		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab
@@ -73,13 +68,11 @@ public class CampaignCreation extends PomBrand{
 		BrandAppPage.goCampaigns();
 		Thread.sleep(1200);
 		CampaignsPage.publishedTab();
-		// further implementations needed
-		
-		// assertEquals(actual, expected);
-		
+		CampaignsPage.closeCampaign("Autotest Campaign");
+		assertEquals(driver.getCurrentUrl(), "https://app.hivency-release.com/campaigns/published");
 	}
 	
-	@Test
+	// @Test
 	public void duplicateCampaign() throws InterruptedException {
 		SignInPage brandSignIn = new SignInPage(driver);
 		brandSignIn.loginValidBrand(51400);   // 51400 = Annaelle de Lalalab

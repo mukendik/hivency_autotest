@@ -1721,4 +1721,82 @@
   2021-05-15 16:11:34 INFO  rootLogger:403 - Campaign okkkkkk found
   2021-05-15 16:11:34 INFO  rootLogger:404 - Duplicating campaign okkkkkk  ...
   2021-05-15 16:11:35 INFO  rootLogger:408 - campaign okkkkkk duplicated successfully !
+  2021-05-15 16:16:48 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:16:48 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:16:48 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:16:50 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :376a822a53ffe86a979a9a9068fa0e45
+  2021-05-15 16:20:47 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:20:47 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:20:47 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:20:49 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :bc730ac0c46c7960b30cd736c39e6cd2
+  2021-05-15 16:26:39 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:26:39 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:26:39 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:26:41 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :63b6a226d417f544cf278c6e8dd475e3
+  2021-05-15 16:29:54 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:29:54 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:29:54 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:29:56 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :a02722e67de0ac0c6a75e7f2f49c19a8
+  2021-05-15 16:31:19 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:31:19 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:31:19 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:31:21 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :b6fb631130a0f190f63afeedebf0ae53
+  2021-05-15 16:40:32 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:40:32 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:40:32 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:40:34 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :7b8ac2850f49ac6a5d030aee64d7e287
+  2021-05-15 16:45:03 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:45:03 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:45:03 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:45:05 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :8c883fae8ab2a3cba259b81de9b5edb1
+  2021-05-15 16:46:15 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:46:15 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:46:15 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:46:17 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :c1196876ad0f4ae70e36226b92094ba9
+  2021-05-15 16:56:15 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:56:15 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:56:15 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:56:17 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :4e449bbc599a5a45cc21b25381b6f749
+  2021-05-15 16:56:28 INFO  rootLogger:427 - Campaign TNR 09/04/2021 found
+  2021-05-15 16:56:28 INFO  rootLogger:428 - Closing campaign TNR 09/04/2021  ...
+  2021-05-15 16:56:28 INFO  rootLogger:432 - campaign TNR 09/04/2021 closed successfully !
+  2021-05-15 16:59:02 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 16:59:02 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 16:59:02 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 16:59:04 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :e3e4e373d80d3fa1dc93793a3a8e2cc2
+  2021-05-15 16:59:16 INFO  rootLogger:427 - Campaign TNR 09/04/2021 found
+  2021-05-15 16:59:16 INFO  rootLogger:428 - Closing campaign TNR 09/04/2021  ...
+  2021-05-15 16:59:17 INFO  rootLogger:433 - campaign TNR 09/04/2021 closed successfully !
+  2021-05-15 16:59:17 INFO  rootLogger:427 - Campaign TNR 09/04/2021 found
+  2021-05-15 16:59:17 INFO  rootLogger:428 - Closing campaign TNR 09/04/2021  ...
+  2021-05-15 17:05:58 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 17:05:58 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 17:05:58 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 17:06:00 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :63dddbc2121fcf6a63dfa9030c5da124
+  2021-05-15 17:06:13 INFO  rootLogger:426 - Campaign TNR 09/04/2021 found
+  2021-05-15 17:06:13 INFO  rootLogger:427 - Closing campaign TNR 09/04/2021  ...
+  2021-05-15 17:06:14 INFO  rootLogger:432 - campaign TNR 09/04/2021 closed successfully !
+  2021-05-15 17:06:14 INFO  rootLogger:426 - Campaign TNR 09/04/2021 found
+  2021-05-15 17:06:14 INFO  rootLogger:427 - Closing campaign TNR 09/04/2021  ...
+  2021-05-15 17:08:53 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 17:08:53 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 17:08:53 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 17:08:55 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :a6fd208ce459e4162ca8c728c576fb94
+  2021-05-15 17:09:07 INFO  rootLogger:426 - Campaign Autotest Campaign found
+  2021-05-15 17:09:07 INFO  rootLogger:427 - Closing campaign Autotest Campaign  ...
+  2021-05-15 17:09:08 INFO  rootLogger:432 - campaign Autotest Campaign closed successfully !
+  2021-05-15 17:12:59 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 17:12:59 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 17:12:59 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 17:13:01 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :5b88622cebf90f0c7fe6826ea347d2fe
+  2021-05-15 17:13:14 INFO  rootLogger:426 - Campaign Autotest Campaign found
+  2021-05-15 17:13:14 INFO  rootLogger:427 - Closing campaign Autotest Campaign  ...
+  2021-05-15 17:13:14 INFO  rootLogger:432 - campaign Autotest Campaign closed successfully !
+  2021-05-15 17:16:19 INFO  rootLogger:47 - Execution started for Hivency Automaton.
+  2021-05-15 17:16:19 INFO  rootLogger:74 - Param.properties file loaded successfully.
+  2021-05-15 17:16:19 INFO  rootLogger:80 - Objects.properties file loaded successfully.
+  2021-05-15 17:16:21 INFO  rootLogger:125 - Chrome Driver Instance loaded successfully with Session id :ed16ddf897752ab476674c7e28ec4146
+  2021-05-15 17:16:33 INFO  rootLogger:426 - Campaign Autotest Campaign found
+  2021-05-15 17:16:33 INFO  rootLogger:427 - Closing campaign Autotest Campaign  ...
+  2021-05-15 17:16:33 INFO  rootLogger:432 - campaign Autotest Campaign closed successfully !
   
