@@ -1,5 +1,7 @@
 package autotest.automate.webapp.brand.testcases;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.testng.Assert.assertEquals;
 
 import java.util.List;
@@ -108,11 +110,9 @@ public class CampaignCreation extends PomBrand{
 		BrandAppPage.goCampaigns();
 		Thread.sleep(1000);
 		CampaignsPage.draftTab();
-		Thread.sleep(4000);
-		CampaignsPage.deleteCampaign("Okkkkkk");
-		Thread.sleep(6000);
-	//	click OK on toast message
-	//	assertEquals(driver.getCurrentUrl(), "https://app.hivency-release.com/campaigns/draft");	
+		Thread.sleep(4200);
+		CampaignsPage.deleteCampaign("Test review campaign instagram");
+		assertEquals(driver.getCurrentUrl(), "https://app.hivency-release.com/campaigns/draft");	
 	}
 
 }
